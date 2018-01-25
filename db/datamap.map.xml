@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data-map xmlns="http://cayenne.apache.org/schema/9/modelMap"
+	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	 xsi:schemaLocation="http://cayenne.apache.org/schema/9/modelMap http://cayenne.apache.org/schema/9/modelMap.xsd"
+	 project-version="9">
+	<property name="defaultLockType" value="optimistic"/>
+	<property name="defaultPackage" value="jp.co.nexus.crm.db"/>
+	<db-entity name="db_entity">
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+	</db-entity>
+	<db-entity name="db_entity1">
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+	</db-entity>
+	<db-entity name="db_entity2">
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+	</db-entity>
+	<db-entity name="db_entity3">
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+	</db-entity>
+	<db-entity name="db_entity4">
+		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+	</db-entity>
+	<obj-entity name="DbEntity" className="jp.co.nexus.crm.db.DbEntity" lock-type="optimistic" dbEntityName="db_entity">
+	</obj-entity>
+	<obj-entity name="DbEntity1" className="jp.co.nexus.crm.db.DbEntity1" lock-type="optimistic" dbEntityName="db_entity1">
+	</obj-entity>
+	<obj-entity name="DbEntity2" className="jp.co.nexus.crm.db.DbEntity2" lock-type="optimistic" dbEntityName="db_entity2">
+	</obj-entity>
+	<obj-entity name="DbEntity3" className="jp.co.nexus.crm.db.DbEntity3" lock-type="optimistic" dbEntityName="db_entity3">
+	</obj-entity>
+	<obj-entity name="DbEntity4" className="jp.co.nexus.crm.db.DbEntity4" lock-type="optimistic" dbEntityName="db_entity4">
+	</obj-entity>
+</data-map>
