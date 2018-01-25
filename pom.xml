@@ -8,7 +8,7 @@
 	<artifactId>nexus</artifactId>
 	<name>CRMWebApp</name>
 	<packaging>war</packaging>
-	<version>1.0.0-BUILD-SNAPSHOT</version>
+	<version>1.0.0-Beta</version>
 	<properties>
 		<java-version>1.7</java-version>
 		<org.springframework-version>3.1.1.RELEASE</org.springframework-version>
