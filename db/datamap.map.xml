@@ -1,74 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<data-map xmlns="http://cayenne.apache.org/schema/9/modelMap"
+<data-map xmlns="http://cayenne.apache.org/schema/3.0/modelMap"
 	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 xsi:schemaLocation="http://cayenne.apache.org/schema/9/modelMap http://cayenne.apache.org/schema/9/modelMap.xsd"
-	 project-version="9">
+	 xsi:schemaLocation="http://cayenne.apache.org/schema/3.0/modelMap http://cayenne.apache.org/schema/3.0/modelMap.xsd"
+	 project-version="6">
 	<property name="defaultLockType" value="optimistic"/>
 	<property name="defaultPackage" value="jp.co.nexus.crm.db"/>
 	<db-entity name="AREA">
 		<db-attribute name="AREACD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
+		<db-attribute name="EMPNO" type="INTEGER" length="10"/>
 		<db-attribute name="LIMITYMD" type="INTEGER" isMandatory="true" length="8"/>
 		<db-attribute name="LOSTYMD" type="INTEGER" isMandatory="true" length="8"/>
 		<db-attribute name="NAME" type="VARCHAR" isMandatory="true" length="40"/>
 		<db-attribute name="SHORT_NAME" type="VARCHAR" isMandatory="true" length="40"/>
 		<db-attribute name="UPDATE" type="INTEGER" length="8"/>
-		<db-attribute name="EMPNO" type="INTEGER" length="10"/>
 	</db-entity>
 	<db-entity name="EMPLOYEE">
+		<db-attribute name="EMAIL" type="VARCHAR" isMandatory="true" length="40"/>
 		<db-attribute name="EMPNO" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="10"/>
 		<db-attribute name="EMPNO_ED" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
-		<db-attribute name="NAME" type="VARCHAR" isMandatory="true" length="40"/>
-		<db-attribute name="PASSWORD" type="VARCHAR" isMandatory="true" length="20"/>
-		<db-attribute name="EMAIL" type="VARCHAR" isMandatory="true" length="40"/>
 		<db-attribute name="ENTRYMD" type="INTEGER" isMandatory="true" length="8"/>
 		<db-attribute name="LIMITYMD" type="INTEGER" isMandatory="true" length="8"/>
 		<db-attribute name="LOSTYMD" type="INTEGER" isMandatory="true" length="8"/>
+		<db-attribute name="NAME" type="VARCHAR" isMandatory="true" length="40"/>
+		<db-attribute name="PASSWORD" type="VARCHAR" isMandatory="true" length="20"/>
 		<db-attribute name="RETRYMD" type="INTEGER" isMandatory="true" length="8"/>
 		<db-attribute name="UPDATE" type="INTEGER" isMandatory="true" length="8"/>
 	</db-entity>
 	<db-entity name="NC_CALLDOC">
+		<db-attribute name="AREACD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
+		<db-attribute name="CALLDOC" type="VARCHAR" isMandatory="true" length="1000"/>
+		<db-attribute name="CALLTIME" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="4"/>
+		<db-attribute name="CALLYMD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="8"/>
 		<db-attribute name="CUSTOMERCD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="10"/>
 		<db-attribute name="CUSTOMERCD_ED" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
-		<db-attribute name="AREACD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
 		<db-attribute name="DIVISIONCD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="10"/>
 		<db-attribute name="DIVISIONCD_ED" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
-		<db-attribute name="CALLYMD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="8"/>
-		<db-attribute name="CALLTIME" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="4"/>
+		<db-attribute name="EMPNO" type="INTEGER" length="10"/>
+		<db-attribute name="LIMTYMD" type="INTEGER" isMandatory="true" length="8"/>
+		<db-attribute name="LOSTYMD" type="INTEGER" isMandatory="true" length="8"/>
+		<db-attribute name="PERSONNO" type="INTEGER" isMandatory="true" length="10"/>
 		<db-attribute name="SALES_EMPNO" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="10"/>
 		<db-attribute name="SALES_EMPNO_ED" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
-		<db-attribute name="LIMTYMD" type="INTEGER" isMandatory="true" length="8"/>
-		<db-attribute name="PERSONNO" type="INTEGER" isMandatory="true" length="10"/>
-		<db-attribute name="CALLDOC" type="VARCHAR" isMandatory="true" length="1000"/>
-		<db-attribute name="LOSTYMD" type="INTEGER" isMandatory="true" length="8"/>
 		<db-attribute name="UPDATE" type="INTEGER" length="8"/>
-		<db-attribute name="EMPNO" type="INTEGER" length="10"/>
 	</db-entity>
 	<db-entity name="NC_COMMON_NM">
-		<db-attribute name="COMMONKBN" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
 		<db-attribute name="COMMONCD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="10"/>
+		<db-attribute name="COMMONKBN" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
+		<db-attribute name="EMPNO" type="INTEGER" length="10"/>
 		<db-attribute name="LIMTYMD" type="INTEGER" isMandatory="true" length="3"/>
+		<db-attribute name="LOSTYMD" type="INTEGER" isMandatory="true" length="8"/>
 		<db-attribute name="NAME" type="VARCHAR" isMandatory="true" length="40"/>
 		<db-attribute name="SHORT_NAME" type="VARCHAR" isMandatory="true" length="40"/>
-		<db-attribute name="TOKKIN1" type="INTEGER" isMandatory="true" length="8"/>
-		<db-attribute name="TOKKIN2" type="INTEGER" length="9"/>
-		<db-attribute name="TOKKIN3" type="INTEGER" length="10"/>
-		<db-attribute name="TOKKIN4" type="INTEGER" length="11"/>
-		<db-attribute name="TOKKIN5" type="INTEGER" length="12"/>
 		<db-attribute name="TOKKIC1" type="VARCHAR" length="400"/>
 		<db-attribute name="TOKKIC2" type="VARCHAR" length="400"/>
 		<db-attribute name="TOKKIC3" type="VARCHAR" length="400"/>
 		<db-attribute name="TOKKIC4" type="VARCHAR" length="400"/>
 		<db-attribute name="TOKKIC5" type="VARCHAR" length="400"/>
-		<db-attribute name="LOSTYMD" type="INTEGER" isMandatory="true" length="8"/>
+		<db-attribute name="TOKKIN1" type="INTEGER" isMandatory="true" length="8"/>
+		<db-attribute name="TOKKIN2" type="INTEGER" length="9"/>
+		<db-attribute name="TOKKIN3" type="INTEGER" length="10"/>
+		<db-attribute name="TOKKIN4" type="INTEGER" length="11"/>
+		<db-attribute name="TOKKIN5" type="INTEGER" length="12"/>
 		<db-attribute name="UPDATE" type="INTEGER" length="8"/>
-		<db-attribute name="EMPNO" type="INTEGER" length="10"/>
 	</db-entity>
 	<db-entity name="NC_CUSTOMER">
+		<db-attribute name="ADDRESS" type="VARCHAR" length="200"/>
+		<db-attribute name="AREACD" type="INTEGER" isMandatory="true" length="3"/>
 		<db-attribute name="CUSTOMERCD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="10"/>
 		<db-attribute name="CUSTOMERCD_ED" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
-		<db-attribute name="AREACD" type="INTEGER" isMandatory="true" length="3"/>
-		<db-attribute name="LIMTYMD" type="INTEGER" isMandatory="true" length="8"/>
-		<db-attribute name="NAME" type="VARCHAR" isMandatory="true" length="60"/>
 		<db-attribute name="CUST_RANK_KBN01" type="INTEGER" isMandatory="true" length="3"/>
 		<db-attribute name="CUST_RANK_KBN02" type="INTEGER" isMandatory="true" length="3"/>
 		<db-attribute name="CUST_RANK_KBN03" type="INTEGER" isMandatory="true" length="3"/>
@@ -79,6 +78,9 @@
 		<db-attribute name="CUST_RANK_KBN08" type="INTEGER" isMandatory="true" length="3"/>
 		<db-attribute name="CUST_RANK_KBN09" type="INTEGER" isMandatory="true" length="3"/>
 		<db-attribute name="CUST_RANK_KBN10" type="INTEGER" isMandatory="true" length="3"/>
+		<db-attribute name="EMAIL1" type="VARCHAR" length="100"/>
+		<db-attribute name="EMAIL2" type="VARCHAR" length="100"/>
+		<db-attribute name="EMPNO" type="INTEGER" length="10"/>
 		<db-attribute name="ITEM_RANK_KBN01" type="INTEGER" isMandatory="true" length="3"/>
 		<db-attribute name="ITEM_RANK_KBN02" type="INTEGER" isMandatory="true" length="3"/>
 		<db-attribute name="ITEM_RANK_KBN03" type="INTEGER" isMandatory="true" length="3"/>
@@ -89,41 +91,99 @@
 		<db-attribute name="ITEM_RANK_KBN08" type="INTEGER" isMandatory="true" length="3"/>
 		<db-attribute name="ITEM_RANK_KBN09" type="INTEGER" isMandatory="true" length="3"/>
 		<db-attribute name="ITEM_RANK_KBN10" type="INTEGER" isMandatory="true" length="3"/>
+		<db-attribute name="LIMTYMD" type="INTEGER" isMandatory="true" length="8"/>
+		<db-attribute name="LOSTYMD" type="INTEGER" isMandatory="true" length="8"/>
+		<db-attribute name="NAME" type="VARCHAR" isMandatory="true" length="60"/>
 		<db-attribute name="OUTSIDE_MAKE_KBN" type="VARCHAR" length="10"/>
 		<db-attribute name="OUTSIDE_MAKE_TOK" type="VARCHAR" length="400"/>
 		<db-attribute name="POSTNO" type="VARCHAR" length="8"/>
-		<db-attribute name="ADDRESS" type="VARCHAR" length="200"/>
 		<db-attribute name="TELNO1" type="VARCHAR" length="15"/>
 		<db-attribute name="TELNO2" type="VARCHAR" length="15"/>
-		<db-attribute name="EMAIL1" type="VARCHAR" length="100"/>
-		<db-attribute name="EMAIL2" type="VARCHAR" length="100"/>
-		<db-attribute name="LOSTYMD" type="INTEGER" isMandatory="true" length="8"/>
 		<db-attribute name="UPDATE" type="INTEGER" length="8"/>
-		<db-attribute name="EMPNO" type="INTEGER" length="10"/>
 	</db-entity>
 	<db-entity name="NC_DIVISION">
+		<db-attribute name="AREACD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
 		<db-attribute name="CUSTOMERCD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="10"/>
 		<db-attribute name="CUSTOMERCD_ED" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
-		<db-attribute name="AREACD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
 		<db-attribute name="DIVISIONCD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="10"/>
 		<db-attribute name="DIVISIONCD_ED" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
+		<db-attribute name="EMPNO" type="INTEGER" length="10"/>
+		<db-attribute name="LOSTYMD" type="INTEGER" isMandatory="true" length="8"/>
 		<db-attribute name="NAME" type="VARCHAR" isMandatory="true" length="40"/>
 		<db-attribute name="SHORT_NAME" type="VARCHAR" isMandatory="true" length="40"/>
 		<db-attribute name="TOKKI" type="VARCHAR" length="100"/>
-		<db-attribute name="LOSTYMD" type="INTEGER" isMandatory="true" length="8"/>
 		<db-attribute name="UPDATE" type="INTEGER" length="8"/>
-		<db-attribute name="EMPNO" type="INTEGER" length="10"/>
 	</db-entity>
 	<db-entity name="NC_OUTSIDE_MAKE">
-		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="AREACD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
+		<db-attribute name="COMPETE" type="VARCHAR" length="10"/>
+		<db-attribute name="CUSTOMERCD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="10"/>
+		<db-attribute name="CUSTOMERCD_ED" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
+		<db-attribute name="DIVISIONCD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="10"/>
+		<db-attribute name="DIVISIONCD_ED" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
+		<db-attribute name="EMPNO" type="INTEGER" length="10"/>
+		<db-attribute name="INTARVIEW" type="INTEGER" length="3"/>
+		<db-attribute name="LIMTYMD" type="INTEGER" isMandatory="true" length="8"/>
+		<db-attribute name="LOSTYMD" type="INTEGER" isMandatory="true" length="8"/>
+		<db-attribute name="MARKET_PRICE" type="VARCHAR" length="10"/>
+		<db-attribute name="NEED_SKILL" type="VARCHAR" length="400"/>
+		<db-attribute name="NUMPEPOLE" type="INTEGER" length="3"/>
+		<db-attribute name="OSMYMD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="8"/>
+		<db-attribute name="OSMYMD_SEQ" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
+		<db-attribute name="OUTSIDE_MAKE_DTL" type="VARCHAR" length="400"/>
+		<db-attribute name="OUTSIDE_MAKE_KBN" type="VARCHAR" length="10"/>
+		<db-attribute name="PERIOD" type="VARCHAR" length="20"/>
+		<db-attribute name="PERSONNO" type="INTEGER" isMandatory="true" length="10"/>
+		<db-attribute name="PERSONNO_ED" type="INTEGER" isMandatory="true" length="3"/>
+		<db-attribute name="PLACE" type="VARCHAR" length="100"/>
+		<db-attribute name="SALES_CHANNEL" type="VARCHAR" length="100"/>
+		<db-attribute name="STATE" type="VARCHAR" length="100"/>
+		<db-attribute name="UPDATE" type="INTEGER" length="8"/>
+		<db-attribute name="WORK" type="VARCHAR" length="10"/>
 	</db-entity>
 	<db-entity name="NC_PERSON">
-		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="AREACD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
+		<db-attribute name="CUSTOMERCD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="10"/>
+		<db-attribute name="CUSTOMERCD_ED" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
+		<db-attribute name="DIVISIONCD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="10"/>
+		<db-attribute name="DIVISIONCD_ED" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
+		<db-attribute name="EMAIL1" type="VARCHAR" length="100"/>
+		<db-attribute name="EMAIL2" type="VARCHAR" length="100"/>
+		<db-attribute name="EMPNO" type="INTEGER" length="10"/>
+		<db-attribute name="LIMTYMD" type="INTEGER" isMandatory="true" length="8"/>
+		<db-attribute name="LOSTYMD" type="INTEGER" isMandatory="true" length="8"/>
+		<db-attribute name="NAME" type="VARCHAR" isMandatory="true" length="100"/>
+		<db-attribute name="OSMYMD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="8"/>
+		<db-attribute name="OSMYMD_SEQ" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
+		<db-attribute name="TELNO1" type="VARCHAR" length="15"/>
+		<db-attribute name="TELNO2" type="VARCHAR" length="15"/>
+		<db-attribute name="UPDATE" type="INTEGER" length="8"/>
 	</db-entity>
 	<db-entity name="NC_STANDARD">
-		<db-attribute name="id" type="INTEGER" isPrimaryKey="true" isMandatory="true"/>
+		<db-attribute name="EMPNO" type="INTEGER" length="10"/>
+		<db-attribute name="LIMTYMD" type="INTEGER" isMandatory="true" length="3"/>
+		<db-attribute name="LOSTYMD" type="INTEGER" isMandatory="true" length="8"/>
+		<db-attribute name="LOWER" type="INTEGER" isMandatory="true" length="10"/>
+		<db-attribute name="NAME" type="VARCHAR" isMandatory="true" length="40"/>
+		<db-attribute name="SHORT_NAME" type="VARCHAR" isMandatory="true" length="40"/>
+		<db-attribute name="STANDCD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="10"/>
+		<db-attribute name="STANDKBN" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
+		<db-attribute name="TOKKIC1" type="VARCHAR" length="400"/>
+		<db-attribute name="TOKKIC2" type="VARCHAR" length="400"/>
+		<db-attribute name="TOKKIC3" type="VARCHAR" length="400"/>
+		<db-attribute name="TOKKIC4" type="VARCHAR" length="400"/>
+		<db-attribute name="TOKKIC5" type="VARCHAR" length="400"/>
+		<db-attribute name="TOKKIN1" type="INTEGER" isMandatory="true" length="8"/>
+		<db-attribute name="TOKKIN2" type="INTEGER" length="9"/>
+		<db-attribute name="TOKKIN3" type="INTEGER" length="10"/>
+		<db-attribute name="TOKKIN4" type="INTEGER" length="11"/>
+		<db-attribute name="TOKKIN5" type="INTEGER" length="12"/>
+		<db-attribute name="UPDATE" type="INTEGER" length="8"/>
+		<db-attribute name="UPPER" type="INTEGER" isMandatory="true" length="10"/>
 	</db-entity>
 	<obj-entity name="Area" className="jp.co.nexus.crm.db.Area" lock-type="optimistic" dbEntityName="AREA">
+		<obj-attribute name="areaCd" type="int" db-attribute-path="AREACD"/>
+		<obj-attribute name="empNo" type="int" db-attribute-path="EMPNO"/>
 	</obj-entity>
 	<obj-entity name="Employee" className="jp.co.nexus.crm.db.Employee" dbEntityName="EMPLOYEE" exclude-default-listeners="true">
 	</obj-entity>
@@ -139,4 +199,5 @@
 	</obj-entity>
 	<obj-entity name="NCStandard" className="jp.co.nexus.crm.db.NCStandard" lock-type="optimistic" dbEntityName="NC_STANDARD" exclude-default-listeners="true">
 	</obj-entity>
+	<obj-relationship name="empNo" source="Employee" target="Area"/>
 </data-map>
