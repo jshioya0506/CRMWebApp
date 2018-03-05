@@ -1,4 +1,4 @@
-package jp.co.nexus;
+package jp.co.nexus.crm.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
