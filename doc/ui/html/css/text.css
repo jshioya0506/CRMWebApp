@@ -1,60 +1,60 @@
 .body {
- color: #FFFFFF;
- background-color: #99FF99;
- font-weight: bold;
+	color: #FFFFFF;
+	background-color: #99FF99;
+	font-weight: bold;
 }
 
 .title {
- color: #006600;
- background-color: #00CC00;
- font-weight: bold;
- font-size: 20pt
+	color: #006600;
+	background-color: #00CC00;
+	font-weight: bold;
+	font-size: 20pt
 }
 
 .search {
- color: #00CC00;
- background-color: #99FF99;
- font-weight: bold;
- font-size: 10pt;
+	color: #00CC00;
+	background-color: #99FF99;
+	font-weight: bold;
+	font-size: 10pt;
 }
 
 .sub_title {
- color: #006600;
- background-color: #00CC00;
- font-weight: bold;
- font-size: 9pt;
-}	
+	color: #006600;
+	background-color: #00CC00;
+	font-weight: bold;
+	font-size: 9pt;
+}
 
 .item {
- color: #FFFFFF;
- background-color: #00CC00;
- font-weight: bold;
+	color: #FFFFFF;
+	background-color: #00CC00;
+	font-weight: bold;
 }
 
 .data {
- color: #00CC00;
- background-color: #CCFFFF;
+	color: #00CC00;
+	background-color: #CCFFFF;
 }
 
 .input {
- color: #00CC00;
- background-color: #FF9933;
+	color: #00CC00;
+	background-color: #FF9933;
 }
 
 .hiro {
- color: #000000;
- background-color: #CCFF66;
- font-size: 9pt;
+	color: #000000;
+	background-color: #CCFF66;
+	font-size: 9pt;
 }
 
 .hiro2 {
- color: #000000;
- background-color: #CCFF99;
- font-size: 9pt;
+	color: #000000;
+	background-color: #CCFF99;
+	font-size: 9pt;
 }
 
 .hiro3 {
- color: #000000;
- background-color: #CCFFCC;
- font-size: 9pt;
+	color: #000000;
+	background-color: #CCFFCC;
+	font-size: 9pt;
 }

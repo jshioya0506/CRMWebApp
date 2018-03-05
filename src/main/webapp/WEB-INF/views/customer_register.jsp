@@ -5,11 +5,11 @@
 <link rel="stylesheet" href="css/text.css" type="text/css">
 </head>
 <body class=body>
-<script type="text/javascript">
+	<script type="text/javascript">
 <!--
-// íœ
+// å‰Šé™¤
 function delete(){
-   if( confirm('ã‹L“à—e‚Åíœ‚µ‚Ä‚à‚æ‚ë‚µ‚¢‚Å‚·‚©H') ) {
+   if( confirm('ä¸Šè¨˜å†…å®¹ã§å‰Šé™¤ã—ã¦ã‚‚ã‚ˆã‚ã—ã„ã§ã™ã‹ï¼Ÿ') ) {
         document.main.action="customer_complete_delete.html";
         document.main.submit();
     }
@@ -17,218 +17,212 @@ function delete(){
 }
 // -->
 </script>
-<center>
+	<center>
 
-<table border=1 width=1000 >
-  <tr>
-    <td align="center" class=title>ŒÚ‹qî•ñŠÇ—ƒVƒXƒeƒ€</td>
-  </tr>
-</table>
-<form name="main">
-<table border=1 width=1000>
-  <tr class=sub_title>
-    <td width=1000 align="center" colspan=5>ŒÚ‹qî•ñ</td>
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">ŽÐ–¼</td>
-    <td>ƒ„ƒ}ƒn”­“®Š”Ž®‰ïŽÐ IMŽ–‹Æ•”</td>
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">’S“–ŽÒ(’ñˆÄæ)</td>
-    <td>››‘¾˜Y</td>
-  </tr>
-  <tr class=hiro3>
-   <td width=200 align="center">•”</td>
-   <td>››Ž–‹Æ•” ››ƒOƒ‹[ƒv</td>
-  </tr>
-@<tr class=hiro3>
-   <td width=200 align="center">–ðE</td>
-   <td>ƒOƒ‹[ƒvƒŠ[ƒ_[</td>
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">“d˜b”Ô†</td>
-    <td>053-460-6109</td>
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">ƒ[ƒ‹ƒAƒhƒŒƒX</td>
-    <td>marumaru.tarou@yamaha.co.jp</td>
-  </tr>
-@<tr class=hiro3>
-    <td width=200 align="center">ŒÚ‹q‚Æ‚ÌŠÖŒW«</td>
-    <td>—ÇD</td>
-  </tr>
-</table>
-<table border=1 width=1000>
-  <tr class=sub_title>
-    <td width=1000 align="center" colspan=5>ŽÐ“àî•ñ</td>
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">’S“–ŽÒ</td>
-    <td>ŽR–{³L</td>
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">•”</td>
-    <td>CCG</td>
-  </tr>
-@<tr class=hiro3>
-    <td width=200 align="center">–ðE</td>
-    <td>ƒOƒ‹[ƒv’·</td>
-  </tr>
-@<tr class=hiro3>
-    <td width=200 align="center">“d˜b”Ô†</td>
-    <td>053-451-0830</td>
-  </tr>
-@<tr class=hiro3>
-    <td width=200 align="center">ƒ[ƒ‹ƒAƒhƒŒƒX</td>
-    <td>yamamoto@nexus-nt.co.jp</td>
-  </tr>
-</table>
-<br>
-<table border=1 width=1000>
-  <tr class=sub_title>
-    <td width=1000 align="center" colspan=5>Šé‹Æî•ñ</td>
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">”„ã</td>
-    <td width=100><u>8</u>“_/10“_</td>
-    <td align="left"></td>
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">l”</td>
-    <td width=100><u>9</u>“_/10“_</td>
-    <td align="left"></td>
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">‹K–Í</td>
-    <td width=100><u>15</u>“_/20“_</td>
-    <td align="left">
-    15“_(‘åŽèƒ[ƒJ[‚Åˆê•”ãêŠé‹Æ),
-    10“_(Ž©ŽÐŽá‚µ‚­‚Íe‰ïŽÐ‚ªˆê•”ãêŠé‹Æ),
-    5“_(ã‹LˆÈŠO‚É‰ž‚¶‚Ä)
-    </td>
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">Ž–‹Æ“à—e</td>
-    <td width=100><u>25</u>“_/30“_</td>
-    <td align="left">
-    30“_(’m–¼“x‚à‚‚­AƒVƒFƒA‚ªL‚¢Ž©ŽÐƒpƒbƒP[ƒWAŽ©ŽÐ»•i‚ÌŠJ”­),
-    20“_(ã‹L‚Å‚Í‚È‚¢‚ªŽ©ŽÐƒpƒbƒP[ƒWAŽ©ŽÐ»•i‚ÌŠJ”­A‘åŽèƒ[ƒJ[‚©‚çˆêŠ‡¿•‰),
-    15“_(‘åŽèƒ[ƒJ[‚©‚çˆêŠ‡¿•‰‚µ‚Ä‚¢‚é),
-    10“_(ã‹LˆÈŠO‚É‰ž‚¶‚Ä)
-    </td>
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">¤—¬</td>
-    <td width=100><u>20</u>“_/20“_</td>
-    <td align="left">
-    20“_(ƒGƒ“ƒh),
-    15“_(ã‹L‚Å‚Í‚È‚¢‚ªA¤—¬‚ªó‚¢(1‰ñ–Ê’k“™)),
-    10“_(¤—¬‚ª‚ ‚é(2‰ñ–Ê’k‚Ü‚Å))
-    </td>
-  </tr>
-</table>
-<br>
-<table border=1 width=1000>
-  <tr class=sub_title>
-    <td width=1000 align="center" colspan=5>ˆÄŒ‚ÌŽ¿î•ñ</td>
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">—vˆõ’ñˆÄ</td>
-    <td width=800><u>8</u>“_/10“_</td>
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">’P‰¿</td>
-    <td width=800><u>9</u>“_/10“_</td>
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">ˆÄŒ“à—e</td>
-    <td width=800><u>15</u>“_/20“_</td>
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">ŽáŽèŽó“ü‚ê</td>
-    <td width=800><u>25</u>“_/30“_</td>
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">ŒˆÙŒ </td>
-    <td width=800><u>20</u>“_/20“_</td>
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">’S“–‘‹Œû</td>
-    <td width=800><u>20</u>“_/20“_</td>
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">’S“–ŽÒ‚Æ‚ÌŠÖŒW«</td>
-    <td width=800><u>20</u>“_/20“_</td>
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">ƒXƒLƒ‹(ŠJ”­Œ¾Œê)</td>
-    <td width=800>
-    	<input type="checkbox" name="programing_skill" value="1">Java
-    	<input type="checkbox" name="programing_skill" value="2">JavaŽáŽè
-    	<input type="checkbox" name="programing_skill" value="4">VB.net
-    	<input type="checkbox" name="programing_skill" value="8" checked="checked">VB6.0
-    	<input type="checkbox" name="programing_skill" value="16" checked="checked">C#.net
-    	<input type="checkbox" name="programing_skill" value="32">C#
-    	<input type="checkbox" name="programing_skill" value="64">PHP
-    	<input type="checkbox" name="programing_skill" value="128">PHPŽáŽè
-    	<input type="checkbox" name="programing_skill" value="256">COBOL
-    	<input type="checkbox" name="programing_skill" value="512">COBOLŽáŽè
-    	<input type="checkbox" name="programing_skill" value="1024">VBA
-    	<input type="checkbox" name="programing_skill" value="2048" checked="checked">C
-    	<input type="checkbox" name="programing_skill" value="4096" checked="checked">C(§Œä)
-    	<input type="checkbox" name="programing_skill" value="8192" checked="checked">C++
-    	<input type="checkbox" name="programing_skill" value="16384">SQL
-    	<input type="checkbox" name="programing_skill" value="32768">PL/SQL
-    	<input type="checkbox" name="programing_skill" value="65536">ACCESS
-    </td>
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">ƒXƒLƒ‹(Žü•Ó‹Æ–±)</td>
-    <td width=800>
-    	<input type="checkbox" name="tester_skill" value="1">ƒeƒXƒ^[
-    	<input type="checkbox" name="tester_skill" value="2">ŒŸØ
-    	<input type="checkbox" name="tester_skill" value="4">ƒwƒ‹ƒvƒfƒXƒN
-    	<input type="checkbox" name="tester_skill" value="8" checked="checked">‰^—pŠÄŽ‹(24“ú365h)
-    	<input type="checkbox" name="tester_skill" value="16" checked="checked">ƒVƒXƒeƒ€‰^—p
-    	<input type="checkbox" name="tester_skill" value="32">Šî”Õ\’z
-    	<input type="checkbox" name="tester_skill" value="64">ƒT[ƒo[\’z
-    	<input type="checkbox" name="tester_skill" value="128">ƒT[ƒo[‰^—p
-    	<input type="checkbox" name="tester_skill" value="256">ƒlƒbƒgƒ[ƒN\’z
-    	<input type="checkbox" name="tester_skill" value="512">ƒlƒbƒgƒ[ƒN‰^—p
-    	<input type="checkbox" name="tester_skill" value="1024">PMO
-    	<input type="checkbox" name="tester_skill" value="2048">ƒhƒLƒ…ƒƒ“ƒgì¬
-    </td>
-  </tr>
-</table>
-<br>
-<table border=1 width=1000>
-  <tr class=sub_title>
-    <td width=1000 align="center" colspan=5>ŠO’—˜—p</td>
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">—˜—p‰Â”Û</td>
-    <td width=800>•s‰Â</td>
-    
-  </tr>
-  <tr class=hiro3>
-    <td width=200 align="center">“Á‹LŽ–€</td>
-    <td width=800></td>
-  </tr>
-</table>
-<br>
-<table width=1000>
-  <tr>
-    <td width=1000 align="center">
-      <input type=button value="íœ" onclick="delete()">
-    </td>
-  </tr>
-</form>
-  <tr>
-  <form method="GET" action="customer_list.html">
-    <td with=800 align="right"><input type=submit value="–ß‚é"></td>
-  </form>
-  </tr>
-</table>
-</center>
+		<table border=1 width=1000>
+			<tr>
+				<td align="center" class=title>é¡§å®¢æƒ…å ±ç®¡ç†ã‚·ã‚¹ãƒ†ãƒ </td>
+			</tr>
+		</table>
+		<form name="main">
+			<table border=1 width=1000>
+				<tr class=sub_title>
+					<td width=1000 align="center" colspan=5>é¡§å®¢æƒ…å ±</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">ç¤¾å</td>
+					<td>ãƒ¤ãƒžãƒç™ºå‹•æ ªå¼ä¼šç¤¾ IMäº‹æ¥­éƒ¨</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">æ‹…å½“è€…(ææ¡ˆå…ˆ)</td>
+					<td>â—‹â—‹å¤ªéƒŽ</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">éƒ¨ç½²</td>
+					<td>â—‹â—‹äº‹æ¥­éƒ¨ â—‹â—‹ã‚°ãƒ«ãƒ¼ãƒ—</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">å½¹è·</td>
+					<td>ã‚°ãƒ«ãƒ¼ãƒ—ãƒªãƒ¼ãƒ€ãƒ¼</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">é›»è©±ç•ªå·</td>
+					<td>053-460-6109</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹</td>
+					<td>marumaru.tarou@yamaha.co.jp</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">é¡§å®¢ã¨ã®é–¢ä¿‚æ€§</td>
+					<td>è‰¯å¥½</td>
+				</tr>
+			</table>
+			<table border=1 width=1000>
+				<tr class=sub_title>
+					<td width=1000 align="center" colspan=5>ç¤¾å†…æƒ…å ±</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">æ‹…å½“è€…</td>
+					<td>å±±æœ¬æ­£ä¼¸</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">éƒ¨ç½²</td>
+					<td>CCG</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">å½¹è·</td>
+					<td>ã‚°ãƒ«ãƒ¼ãƒ—é•·</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">é›»è©±ç•ªå·</td>
+					<td>053-451-0830</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">ãƒ¡ãƒ¼ãƒ«ã‚¢ãƒ‰ãƒ¬ã‚¹</td>
+					<td>yamamoto@nexus-nt.co.jp</td>
+				</tr>
+			</table>
+			<br>
+			<table border=1 width=1000>
+				<tr class=sub_title>
+					<td width=1000 align="center" colspan=5>ä¼æ¥­æƒ…å ±</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">å£²ä¸Š</td>
+					<td width=100><u>8</u>ç‚¹/10ç‚¹</td>
+					<td align="left"></td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">äººæ•°</td>
+					<td width=100><u>9</u>ç‚¹/10ç‚¹</td>
+					<td align="left"></td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">è¦æ¨¡</td>
+					<td width=100><u>15</u>ç‚¹/20ç‚¹</td>
+					<td align="left">15ç‚¹(å¤§æ‰‹ãƒ¡ãƒ¼ã‚«ãƒ¼ã§ä¸€éƒ¨ä¸Šå ´ä¼æ¥­), 10ç‚¹(è‡ªç¤¾è‹¥ã—ãã¯è¦ªä¼šç¤¾ãŒä¸€éƒ¨ä¸Šå ´ä¼æ¥­),
+						5ç‚¹(ä¸Šè¨˜ä»¥å¤–ã«å¿œã˜ã¦)</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">äº‹æ¥­å†…å®¹</td>
+					<td width=100><u>25</u>ç‚¹/30ç‚¹</td>
+					<td align="left">30ç‚¹(çŸ¥ååº¦ã‚‚é«˜ãã€ã‚·ã‚§ã‚¢ãŒåºƒã„è‡ªç¤¾ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã€è‡ªç¤¾è£½å“ã®é–‹ç™º),
+						20ç‚¹(ä¸Šè¨˜ã§ã¯ãªã„ãŒè‡ªç¤¾ãƒ‘ãƒƒã‚±ãƒ¼ã‚¸ã€è‡ªç¤¾è£½å“ã®é–‹ç™ºã€å¤§æ‰‹ãƒ¡ãƒ¼ã‚«ãƒ¼ã‹ã‚‰ä¸€æ‹¬è«‹è² ), 15ç‚¹(å¤§æ‰‹ãƒ¡ãƒ¼ã‚«ãƒ¼ã‹ã‚‰ä¸€æ‹¬è«‹è² ã—ã¦ã„ã‚‹),
+						10ç‚¹(ä¸Šè¨˜ä»¥å¤–ã«å¿œã˜ã¦)</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">å•†æµ</td>
+					<td width=100><u>20</u>ç‚¹/20ç‚¹</td>
+					<td align="left">20ç‚¹(ã‚¨ãƒ³ãƒ‰), 15ç‚¹(ä¸Šè¨˜ã§ã¯ãªã„ãŒã€å•†æµãŒæµ…ã„(1å›žé¢è«‡ç­‰)),
+						10ç‚¹(å•†æµãŒã‚ã‚‹(2å›žé¢è«‡ã¾ã§))</td>
+				</tr>
+			</table>
+			<br>
+			<table border=1 width=1000>
+				<tr class=sub_title>
+					<td width=1000 align="center" colspan=5>æ¡ˆä»¶ã®è³ªæƒ…å ±</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">è¦å“¡ææ¡ˆ</td>
+					<td width=800><u>8</u>ç‚¹/10ç‚¹</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">å˜ä¾¡</td>
+					<td width=800><u>9</u>ç‚¹/10ç‚¹</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">æ¡ˆä»¶å†…å®¹</td>
+					<td width=800><u>15</u>ç‚¹/20ç‚¹</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">è‹¥æ‰‹å—å…¥ã‚Œ</td>
+					<td width=800><u>25</u>ç‚¹/30ç‚¹</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">æ±ºè£æ¨©</td>
+					<td width=800><u>20</u>ç‚¹/20ç‚¹</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">æ‹…å½“çª“å£</td>
+					<td width=800><u>20</u>ç‚¹/20ç‚¹</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">æ‹…å½“è€…ã¨ã®é–¢ä¿‚æ€§</td>
+					<td width=800><u>20</u>ç‚¹/20ç‚¹</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">ã‚¹ã‚­ãƒ«(é–‹ç™ºè¨€èªž)</td>
+					<td width=800><input type="checkbox" name="programing_skill"
+						value="1">Java <input type="checkbox"
+						name="programing_skill" value="2">Javaè‹¥æ‰‹ <input
+						type="checkbox" name="programing_skill" value="4">VB.net <input
+						type="checkbox" name="programing_skill" value="8"
+						checked="checked">VB6.0 <input type="checkbox"
+						name="programing_skill" value="16" checked="checked">C#.net
+						<input type="checkbox" name="programing_skill" value="32">C#
+						<input type="checkbox" name="programing_skill" value="64">PHP
+						<input type="checkbox" name="programing_skill" value="128">PHPè‹¥æ‰‹
+						<input type="checkbox" name="programing_skill" value="256">COBOL
+						<input type="checkbox" name="programing_skill" value="512">COBOLè‹¥æ‰‹
+						<input type="checkbox" name="programing_skill" value="1024">VBA
+						<input type="checkbox" name="programing_skill" value="2048"
+						checked="checked">C <input type="checkbox"
+						name="programing_skill" value="4096" checked="checked">C(åˆ¶å¾¡)
+						<input type="checkbox" name="programing_skill" value="8192"
+						checked="checked">C++ <input type="checkbox"
+						name="programing_skill" value="16384">SQL <input
+						type="checkbox" name="programing_skill" value="32768">PL/SQL
+						<input type="checkbox" name="programing_skill" value="65536">ACCESS
+					</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">ã‚¹ã‚­ãƒ«(å‘¨è¾ºæ¥­å‹™)</td>
+					<td width=800><input type="checkbox" name="tester_skill"
+						value="1">ãƒ†ã‚¹ã‚¿ãƒ¼ <input type="checkbox" name="tester_skill"
+						value="2">æ¤œè¨¼ <input type="checkbox" name="tester_skill"
+						value="4">ãƒ˜ãƒ«ãƒ—ãƒ‡ã‚¹ã‚¯ <input type="checkbox"
+						name="tester_skill" value="8" checked="checked">é‹ç”¨ç›£è¦–(24æ—¥365h)
+						<input type="checkbox" name="tester_skill" value="16"
+						checked="checked">ã‚·ã‚¹ãƒ†ãƒ é‹ç”¨ <input type="checkbox"
+						name="tester_skill" value="32">åŸºç›¤æ§‹ç¯‰ <input type="checkbox"
+						name="tester_skill" value="64">ã‚µãƒ¼ãƒãƒ¼æ§‹ç¯‰ <input
+						type="checkbox" name="tester_skill" value="128">ã‚µãƒ¼ãƒãƒ¼é‹ç”¨ <input
+						type="checkbox" name="tester_skill" value="256">ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯æ§‹ç¯‰ <input
+						type="checkbox" name="tester_skill" value="512">ãƒãƒƒãƒˆãƒ¯ãƒ¼ã‚¯é‹ç”¨ <input
+						type="checkbox" name="tester_skill" value="1024">PMO <input
+						type="checkbox" name="tester_skill" value="2048">ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆä½œæˆ
+					</td>
+				</tr>
+			</table>
+			<br>
+			<table border=1 width=1000>
+				<tr class=sub_title>
+					<td width=1000 align="center" colspan=5>å¤–æ³¨åˆ©ç”¨</td>
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">åˆ©ç”¨å¯å¦</td>
+					<td width=800>ä¸å¯</td>
+
+				</tr>
+				<tr class=hiro3>
+					<td width=200 align="center">ç‰¹è¨˜äº‹é …</td>
+					<td width=800></td>
+				</tr>
+			</table>
+			<br>
+			<table width=1000>
+				<tr>
+					<td width=1000 align="center"><input type=button value="å‰Šé™¤"
+						onclick="delete()"></td>
+				</tr>
+				</form>
+				<tr>
+					<form method="GET" action="customer_list.html">
+						<td with=800 align="right"><input type=submit value="æˆ»ã‚‹"></td>
+					</form>
+				</tr>
+			</table>
+	</center>
 </body>
 </html>

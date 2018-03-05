@@ -5,106 +5,108 @@
 <link rel="stylesheet" href="css/text.css" type="text/css">
 </head>
 <body class=body>
-<center>
+	<center>
 
-<table border=1 width=1000>
-  <tr>
-    <td align="center" class=title>ŒÚ‹qî•ñŠÇ—ƒVƒXƒeƒ€</td>
-  </tr>
-</table>
-<br>
-<form action="login.html">
-<table width=1000>
-  <tr>
-    <td align="right"><input type="submit" name="logout" value="ƒƒOƒAƒEƒg" /></td>
-  </tr>
-</table>
-</form>
-<form method="GET" action="customer_list_filter.html">
-<table width=1000 class=search>
-  <tr>
-    <td width=100 align="center">’S“–‰c‹Æ</td>
-    <td width=700>
-      <select name="GROUP" >
-        <option value="0">ƒŽw’è‚È‚µ„
-        <option value="1">ŽR–{³L
-        <option value="2">“‡“cØXŽq
-        <option value="3">]Ÿº‘¾˜Y
-	<option value="4">ŽR–{—S‰Á
-      </select>
-    </td>
-  </tr>
-  <tr>
-    <td width=100 align="center">ŽÐ–¼</td>
-    <td width=700>
-      <select name="SYAMEI">
-        <option value="0">ƒŽw’è‚È‚µ„
-        <option value="1">ƒ„ƒ}ƒn”­“®Š”Ž®‰ïŽÐ IMŽ–‹Æ•”
-        <option value="2">ABCŠ”Ž®‰ïŽÐ AAAŽ–‹Æ•”
-      </select>
-    </td>
-    <td width=100><input type=submit value=" ŒŸõ "></td>
-  </tr>
-<br>
-</table>
-</form>
-<br>
-<form method="GET" action="customer_detail.html">
-<table border=1 width=1000>
-  <tr class=sub_title>
-    <td width=1000 align="center" colspan=11>ŒÚ‹qˆê——</td>
-  </tr>
-  <tr class=sub_title>
-    <td align="center">ŒÚ‹q<br>”Ô†</td>
-    <td align="center">’S“–<br>‰c‹Æ</td>
-    <td align="center">ƒ‰ƒ“ƒN</td>
-    <td align="center">ŽÐ–¼</td>
-    <td align="center">ZŠ</td>
-    <td align="center">’S“–ŽÒ</td>
-    <td align="center">•”–¼</td>
-    <td align="center">–ðE</td>
-    <td align="center">‘O‰ñ<br/>–K–â“ú</td>
-    <td align="center">ŠÖŒW«</td>
-    <td align="center"></td>
-  </tr>
-  <tr class=hiro3>
-    <td align="center">H0001</td>
-    <td align="center">ŽR–{³L</td>
-    <td align="center">A-1</td>
-    <td align="center">ƒ„ƒ}ƒn”­“®Š”Ž®‰ïŽÐ IMŽ–‹Æ•”</td>
-    <td align="center">Ã‰ªŒ§•l¼Žs’†‹æ‘o’¬882</td>
-    <td align="center">››‘¾˜Y</td>
-    <td align="center">››Ž–‹Æ•” ››ƒOƒ‹[ƒv</td>
-    <td align="center">ƒOƒ‹[ƒvƒŠ[ƒ_[</td>
-    <td align="center">2017/10/01</td>
-    <td align="center">—ÇD</td>
-    <td align="center"><input type=submit value="Ú×"></td>
-  </tr>
-  <tr class=hiro2>
-    <td align="center">T0001</td>
-    <td align="center">“‡“cØXŽq</td>
-    <td align="center">B-1</td>
-    <td align="center">ABCŠ”Ž®‰ïŽÐ AAAŽ–‹Æ•”</td>
-    <td align="center">“Œ‹ž“sç‘ã“c‹æŠÛ‚Ì“à1’š–Ú</td>
-    <td align="center">¢¢ŽŸ˜Y</td>
-    <td align="center">¢¢¢¢Ž–‹Æ•”<br/>ƒOƒ‹[ƒvƒŠ[ƒ_[</td>
-    <td align="center">¢¢¢¢Ž–‹Æ•”<br/>¢¢ƒOƒ‹[ƒv</td>
-    <td align="center">2017/11/01</td>
-    <td align="center">•’Ê</td>
-    <td align="center"><input type=submit value="Ú×"></td>
-  </tr>
+		<table border=1 width=1000>
+			<tr>
+				<td align="center" class=title>é¡§å®¢æƒ…å ±ç®¡ç†ã‚·ã‚¹ãƒ†ãƒ </td>
+			</tr>
+		</table>
+		<br>
+		<form action="login.html">
+			<table width=1000>
+				<tr>
+					<td align="right"><input type="submit" name="logout"
+						value="ãƒ­ã‚°ã‚¢ã‚¦ãƒˆ" /></td>
+				</tr>
+			</table>
+		</form>
+		<form method="GET" action="customer_list_filter.html">
+			<table width=1000 class=search>
+				<tr>
+					<td width=100 align="center">æ‹…å½“å–¶æ¥­</td>
+					<td width=700><select name="GROUP">
+							<option value="0">ï¼œæŒ‡å®šãªã—ï¼ž
+							<option value="1">å±±æœ¬æ­£ä¼¸
+							<option value="2">å³¶ç”°èœã€…å­
+							<option value="3">æ±Ÿæ¸•å¤ªéƒŽ
+							<option value="4">å±±æœ¬ç¥åŠ 
+					</select></td>
+				</tr>
+				<tr>
+					<td width=100 align="center">ç¤¾å</td>
+					<td width=700><select name="SYAMEI">
+							<option value="0">ï¼œæŒ‡å®šãªã—ï¼ž
+							<option value="1">ãƒ¤ãƒžãƒç™ºå‹•æ ªå¼ä¼šç¤¾ IMäº‹æ¥­éƒ¨
+							<option value="2">ABCæ ªå¼ä¼šç¤¾ AAAäº‹æ¥­éƒ¨
+					</select></td>
+					<td width=100><input type=submit value=" æ¤œç´¢ "></td>
+				</tr>
+				<br>
+			</table>
+		</form>
+		<br>
+		<form method="GET" action="customer_detail.html">
+			<table border=1 width=1000>
+				<tr class=sub_title>
+					<td width=1000 align="center" colspan=11>é¡§å®¢ä¸€è¦§</td>
+				</tr>
+				<tr class=sub_title>
+					<td align="center">é¡§å®¢<br>ç•ªå·
+					</td>
+					<td align="center">æ‹…å½“<br>å–¶æ¥­
+					</td>
+					<td align="center">ãƒ©ãƒ³ã‚¯</td>
+					<td align="center">ç¤¾å</td>
+					<td align="center">ä½æ‰€</td>
+					<td align="center">æ‹…å½“è€…</td>
+					<td align="center">éƒ¨ç½²å</td>
+					<td align="center">å½¹è·</td>
+					<td align="center">å‰å›ž<br />è¨ªå•æ—¥
+					</td>
+					<td align="center">é–¢ä¿‚æ€§</td>
+					<td align="center"></td>
+				</tr>
+				<tr class=hiro3>
+					<td align="center">H0001</td>
+					<td align="center">å±±æœ¬æ­£ä¼¸</td>
+					<td align="center">A-1</td>
+					<td align="center">ãƒ¤ãƒžãƒç™ºå‹•æ ªå¼ä¼šç¤¾ IMäº‹æ¥­éƒ¨</td>
+					<td align="center">é™å²¡çœŒæµœæ¾å¸‚ä¸­åŒºæ—©å‡ºç”º882</td>
+					<td align="center">â—‹â—‹å¤ªéƒŽ</td>
+					<td align="center">â—‹â—‹äº‹æ¥­éƒ¨ â—‹â—‹ã‚°ãƒ«ãƒ¼ãƒ—</td>
+					<td align="center">ã‚°ãƒ«ãƒ¼ãƒ—ãƒªãƒ¼ãƒ€ãƒ¼</td>
+					<td align="center">2017/10/01</td>
+					<td align="center">è‰¯å¥½</td>
+					<td align="center"><input type=submit value="è©³ç´°"></td>
+				</tr>
+				<tr class=hiro2>
+					<td align="center">T0001</td>
+					<td align="center">å³¶ç”°èœã€…å­</td>
+					<td align="center">B-1</td>
+					<td align="center">ABCæ ªå¼ä¼šç¤¾ AAAäº‹æ¥­éƒ¨</td>
+					<td align="center">æ±äº¬éƒ½åƒä»£ç”°åŒºä¸¸ã®å†…1ä¸ç›®</td>
+					<td align="center">â–³â–³æ¬¡éƒŽ</td>
+					<td align="center">â–³â–³â–³â–³äº‹æ¥­éƒ¨<br />ã‚°ãƒ«ãƒ¼ãƒ—ãƒªãƒ¼ãƒ€ãƒ¼
+					</td>
+					<td align="center">â–³â–³â–³â–³äº‹æ¥­éƒ¨<br />â–³â–³ã‚°ãƒ«ãƒ¼ãƒ—
+					</td>
+					<td align="center">2017/11/01</td>
+					<td align="center">æ™®é€š</td>
+					<td align="center"><input type=submit value="è©³ç´°"></td>
+				</tr>
 
-</table>
-</form>
-<br>
-<form method="GET" action="customer_register.html">
-<table width=1000>
-  <tr>
-    <td with=800 align="right"><input type=submit value="V‹K“o˜^">
-    </td>
-  </tr>
-</table>
-</form>
-</center>
+			</table>
+		</form>
+		<br>
+		<form method="GET" action="customer_register.html">
+			<table width=1000>
+				<tr>
+					<td with=800 align="right"><input type=submit value="æ–°è¦ç™»éŒ²">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</center>
 </body>
 </html>

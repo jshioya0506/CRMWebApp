@@ -5,37 +5,37 @@
 <link rel="stylesheet" href="css/text.css" type="text/css">
 </head>
 <body class=body>
-<center>
+	<center>
 
-<table border=1 width=800>
-  <tr>
-    <td align="center" class=title>�ڋq���Ǘ��V�X�e��</td>
-  </tr>
-</table>
-<br>
+		<table border=1 width=800>
+			<tr>
+				<td align="center" class=title>顧客情報管理システム</td>
+			</tr>
+		</table>
+		<br>
 
-<table border=1 width=800>
-  <tr class=sub_title>
-    <td width=800 align="center" colspan=5>�o�^����</td>
-  </tr>
-  <tr>
-    <td width=250 align="center" class=hiro3>�ڋq����o�^���܂����B</td>
-  </tr>
-</table>
-<br>
+		<table border=1 width=800>
+			<tr class=sub_title>
+				<td width=800 align="center" colspan=5>登録完了</td>
+			</tr>
+			<tr>
+				<td width=250 align="center" class=hiro3>顧客情報を登録しました。</td>
+			</tr>
+		</table>
+		<br>
 
-<form method="GET" action="customer_list.html">
+		<form method="GET" action="customer_list.html">
 
-<table width=800>
-  <tr>
-    <td width=800 align="center"><input type=submit value=" ������ʂ֖߂� "></td>
-  </tr>
+			<table width=800>
+				<tr>
+					<td width=800 align="center"><input type=submit
+						value=" 検索画面へ戻る "></td>
+				</tr>
 
-</form>
+				</form>
 
-</table>
-
-</center>
+			</table>
+	</center>
 </body>
 
 </html>
