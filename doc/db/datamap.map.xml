@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <data-map xmlns="http://cayenne.apache.org/schema/3.0/modelMap"
 	 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 xsi:schemaLocation="http://cayenne.apache.org/schema/3.0/modelMap http://cayenne.apache.org/schema/3.0/modelMap.xsd"
+	 xsi:schemaLocation="http://cayenne.apache.org/schema/3.0/modelMap.xsd http://cayenne.apache.org/schema/3.0/modelMap"
 	 project-version="6">
 	<property name="defaultLockType" value="optimistic"/>
 	<property name="defaultPackage" value="jp.co.nexus.crm.db"/>
@@ -184,14 +184,99 @@
 	<obj-entity name="Area" className="jp.co.nexus.crm.db.Area" lock-type="optimistic" dbEntityName="AREA">
 		<obj-attribute name="areaCd" type="int" db-attribute-path="AREACD"/>
 		<obj-attribute name="empNo" type="int" db-attribute-path="EMPNO"/>
+		<obj-attribute name="limitYmd" type="int" db-attribute-path="LIMITYMD"/>
+		<obj-attribute name="lostYmd" type="int" db-attribute-path="LOSTYMD"/>
+		<obj-attribute name="name" type="int" db-attribute-path="NAME"/><!-- String -->
+		<obj-attribute name="shortName" type="int" db-attribute-path="SHORT_NAME"/><!-- String -->
+		<obj-attribute name="update" type="int" db-attribute-path="UPDATE"/>
 	</obj-entity>
 	<obj-entity name="Employee" className="jp.co.nexus.crm.db.Employee" dbEntityName="EMPLOYEE" exclude-default-listeners="true">
+		<obj-attribute name="email" type="int" db-attribute-path="EMAIL"/>
+		<obj-attribute name="empNo" type="int" db-attribute-path="EMPNO"/>
+		<obj-attribute name="empNoEd" type="int" db-attribute-path="EMPNO_ED"/>
+		<obj-attribute name="limitYmd" type="int" db-attribute-path="LIMITYMD"/>
+		<obj-attribute name="lostYmd" type="int" db-attribute-path="LOSTYMD"/>
+		<obj-attribute name="name" type="int" db-attribute-path="NAME"/><!-- String -->
+		<obj-attribute name="password" type="int" db-attribute-path="PASSWORD"/><!-- String -->
+		<obj-attribute name="update" type="int" db-attribute-path="UPDATE"/>
 	</obj-entity>
 	<obj-entity name="NCCalldoc" className="jp.co.nexus.crm.db.NCCalldoc" dbEntityName="NC_CALLDOC" exclude-superclass-listeners="true">
+		<obj-attribute name="areaCd" type="int" db-attribute-path="AREACD"/>
+		<obj-attribute name="callDoc" type="int" db-attribute-path="CALLDOC"/><!-- String -->
+		<obj-attribute name="callTime" type="int" db-attribute-path="CALLTIME"/>
+		<obj-attribute name="callYmd" type="int" db-attribute-path="CALLYMD"/>
+		<obj-attribute name="customerCd" type="int" db-attribute-path="CUSTOMERCD"/>
+		<obj-attribute name="customerCdEd" type="int" db-attribute-path="CUSTOMERCD_ED"/>
+		<obj-attribute name="divisionCd" type="int" db-attribute-path="DIVISIONCD"/>
+		<obj-attribute name="divisionCdEd" type="int" db-attribute-path="DIVISIONCD_ED"/>
+		<obj-attribute name="limitYmd" type="int" db-attribute-path="LIMTYMD"/>
+		<obj-attribute name="lostYmd" type="int" db-attribute-path="LOSTYMD"/>
+		<obj-attribute name="personNo" type="int" db-attribute-path="PERSONNO"/>
+		<obj-attribute name="salesEmpNo" type="int" db-attribute-path="SALES_EMPNO"/>
+		<obj-attribute name="salesEmpEd" type="int" db-attribute-path="SALES_EMPNO_ED"/>
+		<obj-attribute name="update" type="int" db-attribute-path="UPDATE"/>
 	</obj-entity>
 	<obj-entity name="NCCommonNm" className="jp.co.nexus.crm.db.NCCommonNm" lock-type="optimistic" dbEntityName="NC_COMMON_NM" exclude-superclass-listeners="true">
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="COMMONKBN"/>
+		<obj-attribute name="commonCd" type="int" db-attribute-path="COMMONCD"/>
+		<obj-attribute name="empNo" type="int" db-attribute-path="EMPNO"/>
+		<obj-attribute name="limitYmd" type="int" db-attribute-path="LIMITYMD"/>
+		<obj-attribute name="lostYmd" type="int" db-attribute-path="LOSTYMD"/>
+		<obj-attribute name="name" type="int" db-attribute-path="NAME"/><!-- String -->
+		<obj-attribute name="shortName" type="int" db-attribute-path="SHORT_NAME"/><!-- String -->
+		<obj-attribute name="tokkiC1" type="int" db-attribute-path="TOKKIC1"/><!-- String -->
+		<obj-attribute name="tokkiC2" type="int" db-attribute-path="TOKKIC2"/><!-- String -->
+		<obj-attribute name="tokkiC3" type="int" db-attribute-path="TOKKIC3"/><!-- String -->
+		<obj-attribute name="tokkiC4" type="int" db-attribute-path="TOKKIC4"/><!-- String -->
+		<obj-attribute name="tokkiC5" type="int" db-attribute-path="TOKKIC5"/><!-- String -->
+		<obj-attribute name="tokkiN1" type="int" db-attribute-path="TOKKIN1"/>
+		<obj-attribute name="tokkiN2" type="int" db-attribute-path="TOKKIN2"/>
+		<obj-attribute name="tokkiN3" type="int" db-attribute-path="TOKKIN3"/>
+		<obj-attribute name="tokkiN4" type="int" db-attribute-path="TOKKIN4"/>
+		<obj-attribute name="tokkiN5" type="int" db-attribute-path="TOKKIN5"/>
+		<obj-attribute name="update" type="int" db-attribute-path="UPDATE"/>
+	</obj-entity>
+	<obj-entity name="NCCustomer" className="jp.co.nexus.crm.db.NCCustomer" lock-type="optimistic" dbEntityName="NC_CUSTOMER" exclude-superclass-listeners="true">
+		<!-- 編集中 -->
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="ADDRESS"/><!-- String -->
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="AREACD"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="CUSTOMERCD"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="CUSTOMERCD_ED"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="CUST_RANK_KBN01"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="CUST_RANK_KBN02"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="CUST_RANK_KBN03"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="CUST_RANK_KBN04"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="CUST_RANK_KBN05"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="CUST_RANK_KBN06"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="CUST_RANK_KBN07"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="CUST_RANK_KBN08"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="CUST_RANK_KBN09"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="CUST_RANK_KBN10"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="EMAIL1"/><!-- String -->
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="EMAIL2"/><!-- String -->
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="EMPNO"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="ITEM_RANK_KBN01"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="ITEM_RANK_KBN02"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="ITEM_RANK_KBN03"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="ITEM_RANK_KBN04"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="ITEM_RANK_KBN05"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="ITEM_RANK_KBN06"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="ITEM_RANK_KBN07"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="ITEM_RANK_KBN08"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="ITEM_RANK_KBN09"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="ITEM_RANK_KBN10"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="LIMTYMD"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="LOSTYMD"/>
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="NAME"/><!-- String -->
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="OUTSIDE_MAKE_KBN"/><!-- String -->
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="OUTSIDE_MAKE_TOK"/><!-- String -->
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="POSTNO"/><!-- String -->
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="TELNO1"/><!-- String -->
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="TELNO2"/><!-- String -->
+		<obj-attribute name="commonKbn" type="int" db-attribute-path="UPDATE"/>
 	</obj-entity>
 	<obj-entity name="NCDivision" className="jp.co.nexus.crm.db.NCDivision" lock-type="optimistic" dbEntityName="NC_DIVISION" exclude-superclass-listeners="true">
+		<!-- 編集中 -->
 	</obj-entity>
 	<obj-entity name="NCOutsideMake" className="jp.co.nexus.crm.db.NCOutsideMake" lock-type="optimistic" dbEntityName="NC_OUTSIDE_MAKE" exclude-default-listeners="true">
 	</obj-entity>
