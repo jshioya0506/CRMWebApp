@@ -1,8 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <title>N-CRM</title>
-<bgsound loop="infinite" src="sound/bgm.wma">
-<link rel="stylesheet" href="css/text.css" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/text.css'/>" type="text/css">
 </head>
 <body class=body>
 	<center>
@@ -24,12 +25,12 @@
 		</table>
 		<br>
 
-		<form method="GET" action="customer_list.html">
+		<form method="GET" action="/searchCustomer">
 
 			<table width=800>
 				<tr>
 					<td width=800 align="center"><input type=submit
-						value=" 検索画面へ戻る "></td>
+						value="顧客情報一覧へ戻る "></td>
 				</tr>
 
 				</form>

@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  */
 @Controller
-public class CustomerRegisterController {
+public class CustomerDeleteController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(CustomerRegisterController.class);
+	private static final Logger logger = LoggerFactory.getLogger(CustomerDeleteController.class);
 	
 	/**
 	 * 
@@ -25,9 +25,9 @@ public class CustomerRegisterController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/registerCustomer", method = RequestMethod.GET)
+	@RequestMapping(value = "/deleteCustomer", method = RequestMethod.GET)
 	public String doProcess(Locale locale, Model model) {
-		return "customer_complete_registed";
+		return "customer_complete_delete";
 	}
 	
 }

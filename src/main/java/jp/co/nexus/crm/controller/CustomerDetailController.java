@@ -25,9 +25,9 @@ public class CustomerDetailController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/detailCustomer", method = RequestMethod.GET)
 	public String doProcess(Locale locale, Model model) {
-		return "login";
+		return "customer_detail";
 	}
 	
 }

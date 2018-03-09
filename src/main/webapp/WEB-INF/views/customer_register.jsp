@@ -1,16 +1,17 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
 <title>N-CRM</title>
-<bgsound loop="infinite" src="sound/bgm.wma">
-<link rel="stylesheet" href="css/text.css" type="text/css">
+<link rel="stylesheet" href="<c:url value='/resources/css/text.css'/>" type="text/css">
 </head>
 <body class=body>
 	<script type="text/javascript">
 <!--
 // 削除
-function delete(){
-   if( confirm('上記内容で削除してもよろしいですか？') ) {
-        document.main.action="customer_complete_delete.html";
+function registerCustomer(){
+   if( confirm('上記内容で登録してもよろしいですか？') ) {
+        document.main.action="/registerCustomer";
         document.main.submit();
     }
     return;
@@ -213,12 +214,12 @@ function delete(){
 			<br>
 			<table width=1000>
 				<tr>
-					<td width=1000 align="center"><input type=button value="削除"
-						onclick="delete()"></td>
+					<td width=1000 align="center"><input type=button value="登録"
+						onclick="registerCustomer()"></td>
 				</tr>
 				</form>
 				<tr>
-					<form method="GET" action="customer_list.html">
+					<form method="GET" action="/detailCustomer">
 						<td with=800 align="right"><input type=submit value="戻る"></td>
 					</form>
 				</tr>

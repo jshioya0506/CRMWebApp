@@ -25,9 +25,9 @@ public class CustomerSearchController {
 	 * @param model
 	 * @return
 	 */
-	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	@RequestMapping(value = "/searchCustomer", method = RequestMethod.GET)
 	public String doProcess(Locale locale, Model model) {
-		return "login";
+		return "customer_list";
 	}
 	
 }
