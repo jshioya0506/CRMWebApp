@@ -11,7 +11,7 @@
 			<driver value="com.mysql.jdbc.Driver"/>
 			<url value="jdbc:mysql://localhost/nexus_crm"/>
 			<connectionPool min="1" max="10"/>
-			<login userName="root"/>
+			<login userName="root" password="NXS@nexus"/>
 		</data-source>
 	</node>
 </domain>
