@@ -102,7 +102,7 @@
 		<db-attribute name="UPDATE" type="INTEGER" length="8"/>
 	</db-entity>
 	<db-entity name="NC_DIVISION">
-		<db-attribute name="AREACD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
+		<db-attribute name="AREACD" type="INTEGER" isMandatory="true" length="3"/>
 		<db-attribute name="CUSTOMERCD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="10"/>
 		<db-attribute name="CUSTOMERCD_ED" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
 		<db-attribute name="DIVISIONCD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="10"/>
@@ -115,7 +115,7 @@
 		<db-attribute name="UPDATE" type="INTEGER" length="8"/>
 	</db-entity>
 	<db-entity name="NC_OUTSIDE_MAKE">
-		<db-attribute name="AREACD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
+		<db-attribute name="AREACD" type="INTEGER" isMandatory="true" length="3"/>
 		<db-attribute name="COMPETE" type="VARCHAR" length="10"/>
 		<db-attribute name="CUSTOMERCD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="10"/>
 		<db-attribute name="CUSTOMERCD_ED" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
@@ -142,7 +142,7 @@
 		<db-attribute name="WORK" type="VARCHAR" length="10"/>
 	</db-entity>
 	<db-entity name="NC_PERSON">
-		<db-attribute name="AREACD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
+		<db-attribute name="AREACD" type="INTEGER" length="3"/>
 		<db-attribute name="CUSTOMERCD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="10"/>
 		<db-attribute name="CUSTOMERCD_ED" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
 		<db-attribute name="DIVISIONCD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="10"/>
@@ -182,8 +182,6 @@
 		<db-attribute name="UPPER" type="INTEGER" isMandatory="true" length="10"/>
 	</db-entity>
 	<obj-entity name="Area" className="jp.co.nexus.crm.db.Area" lock-type="optimistic" dbEntityName="AREA">
-		<obj-attribute name="areaCd" type="int" db-attribute-path="AREACD"/>
-		<obj-attribute name="empNo" type="int" db-attribute-path="EMPNO"/>
 		<obj-attribute name="limitYmd" type="int" db-attribute-path="LIMITYMD"/>
 		<obj-attribute name="lostYmd" type="int" db-attribute-path="LOSTYMD"/>
 		<obj-attribute name="modified" type="int" db-attribute-path="UPDATE"/>
@@ -194,14 +192,15 @@
 		<obj-attribute name="email" type="java.lang.String" db-attribute-path="EMAIL"/>
 		<obj-attribute name="empNo" type="int" db-attribute-path="EMPNO"/>
 		<obj-attribute name="empNoEd" type="int" db-attribute-path="EMPNO_ED"/>
+		<obj-attribute name="entrymd" type="java.lang.Integer" db-attribute-path="ENTRYMD"/>
 		<obj-attribute name="limitYmd" type="int" db-attribute-path="LIMITYMD"/>
 		<obj-attribute name="lostYmd" type="int" db-attribute-path="LOSTYMD"/>
 		<obj-attribute name="modified" type="int" db-attribute-path="UPDATE"/>
 		<obj-attribute name="name" type="java.lang.String" db-attribute-path="NAME"/>
 		<obj-attribute name="password" type="int" db-attribute-path="PASSWORD"/>
+		<obj-attribute name="retrymd" type="java.lang.Integer" db-attribute-path="RETRYMD"/>
 	</obj-entity>
 	<obj-entity name="NCCalldoc" className="jp.co.nexus.crm.db.NCCalldoc" dbEntityName="NC_CALLDOC" exclude-superclass-listeners="true">
-		<obj-attribute name="areaCd" type="int" db-attribute-path="AREACD"/>
 		<obj-attribute name="callDoc" type="java.lang.String" db-attribute-path="CALLDOC"/>
 		<obj-attribute name="callTime" type="int" db-attribute-path="CALLTIME"/>
 		<obj-attribute name="callYmd" type="int" db-attribute-path="CALLYMD"/>
@@ -240,7 +239,6 @@
 		<obj-attribute name="address" type="java.lang.String" db-attribute-path="ADDRESS"/>
 		<obj-attribute name="ankenInfo" type="int" db-attribute-path="ITEM_RANK_KBN03"/>
 		<obj-attribute name="approvalRights" type="int" db-attribute-path="ITEM_RANK_KBN05"/>
-		<obj-attribute name="areaCd" type="int" db-attribute-path="AREACD"/>
 		<obj-attribute name="backbone" type="int" db-attribute-path="CUST_RANK_KBN03"/>
 		<obj-attribute name="custRank06" type="int" db-attribute-path="CUST_RANK_KBN06"/>
 		<obj-attribute name="custRank07" type="int" db-attribute-path="CUST_RANK_KBN07"/>
@@ -251,7 +249,6 @@
 		<obj-attribute name="customerCdEd" type="int" db-attribute-path="CUSTOMERCD_ED"/>
 		<obj-attribute name="email1" type="java.lang.String" db-attribute-path="EMAIL1"/>
 		<obj-attribute name="email2" type="java.lang.String" db-attribute-path="EMAIL2"/>
-		<obj-attribute name="empNo" type="int" db-attribute-path="EMPNO"/>
 		<obj-attribute name="itemRank08" type="int" db-attribute-path="ITEM_RANK_KBN08"/>
 		<obj-attribute name="itemRank09" type="int" db-attribute-path="ITEM_RANK_KBN09"/>
 		<obj-attribute name="itemRank10" type="int" db-attribute-path="ITEM_RANK_KBN10"/>
@@ -275,12 +272,10 @@
 		<obj-attribute name="workInfo" type="int" db-attribute-path="CUST_RANK_KBN04"/>
 	</obj-entity>
 	<obj-entity name="NCDivision" className="jp.co.nexus.crm.db.NCDivision" lock-type="optimistic" dbEntityName="NC_DIVISION" exclude-superclass-listeners="true">
-		<obj-attribute name="areaCd" type="int" db-attribute-path="AREACD"/>
 		<obj-attribute name="customerCd" type="int" db-attribute-path="CUSTOMERCD"/>
 		<obj-attribute name="customerCdEd" type="int" db-attribute-path="CUSTOMERCD_ED"/>
 		<obj-attribute name="divisionCd" type="int" db-attribute-path="DIVISIONCD"/>
 		<obj-attribute name="divisionCdEd" type="int" db-attribute-path="DIVISIONCD_ED"/>
-		<obj-attribute name="empNo" type="int" db-attribute-path="EMPNO"/>
 		<obj-attribute name="lostYmd" type="int" db-attribute-path="LOSTYMD"/>
 		<obj-attribute name="modified" type="int" db-attribute-path="UPDATE"/>
 		<obj-attribute name="name" type="java.lang.String" db-attribute-path="NAME"/>
@@ -292,7 +287,6 @@
 		<obj-attribute name="compete" type="java.lang.String" db-attribute-path="COMPETE"/>
 		<obj-attribute name="customerCd" type="int" db-attribute-path="CUSTOMERCD"/>
 		<obj-attribute name="customerCdEd" type="int" db-attribute-path="CUSTOMERCD_ED"/>
-		<obj-attribute name="empNo" type="int" db-attribute-path="EMPNO"/>
 		<obj-attribute name="intarview" type="int" db-attribute-path="INTARVIEW"/>
 		<obj-attribute name="limitYmd" type="int" db-attribute-path="LIMTYMD"/>
 		<obj-attribute name="lostYmd" type="int" db-attribute-path="LOSTYMD"/>
@@ -313,13 +307,13 @@
 		<obj-attribute name="work" type="java.lang.String" db-attribute-path="WORK"/>
 	</obj-entity>
 	<obj-entity name="NCPerson" className="jp.co.nexus.crm.db.NCPerson" lock-type="optimistic" dbEntityName="NC_PERSON" exclude-default-listeners="true">
-		<obj-attribute name="areaCd" type="int" db-attribute-path="AREACD"/>
 		<obj-attribute name="customerCd" type="int" db-attribute-path="CUSTOMERCD"/>
 		<obj-attribute name="customerCdEd" type="int" db-attribute-path="CUSTOMERCD_ED"/>
 		<obj-attribute name="divisionCd" type="int" db-attribute-path="DIVISIONCD"/>
 		<obj-attribute name="divisionCdEd" type="int" db-attribute-path="DIVISIONCD_ED"/>
 		<obj-attribute name="email1" type="java.lang.String" db-attribute-path="EMAIL1"/>
 		<obj-attribute name="email2" type="java.lang.String" db-attribute-path="EMAIL2"/>
+		<obj-attribute name="empno" type="java.lang.Integer" db-attribute-path="EMPNO"/>
 		<obj-attribute name="limitYmd" type="int" db-attribute-path="LIMTYMD"/>
 		<obj-attribute name="lostYmd" type="int" db-attribute-path="LOSTYMD"/>
 		<obj-attribute name="modified" type="int" db-attribute-path="UPDATE"/>
@@ -330,7 +324,6 @@
 		<obj-attribute name="telNo2" type="int" db-attribute-path="TELNO2"/>
 	</obj-entity>
 	<obj-entity name="NCStandard" className="jp.co.nexus.crm.db.NCStandard" lock-type="optimistic" dbEntityName="NC_STANDARD" exclude-default-listeners="true">
-		<obj-attribute name="empNo" type="int" db-attribute-path="EMPNO"/>
 		<obj-attribute name="limitYmd" type="int" db-attribute-path="LIMTYMD"/>
 		<obj-attribute name="lostYmd" type="int" db-attribute-path="LOSTYMD"/>
 		<obj-attribute name="lower" type="int" db-attribute-path="LOWER"/>
@@ -351,4 +344,84 @@
 		<obj-attribute name="tokkin5" type="int" db-attribute-path="TOKKIN5"/>
 		<obj-attribute name="upper" type="int" db-attribute-path="UPPER"/>
 	</obj-entity>
+	<db-relationship name="calldocs" source="AREA" target="NC_CALLDOC" toMany="true">
+		<db-attribute-pair source="AREACD" target="AREACD"/>
+	</db-relationship>
+	<db-relationship name="customers" source="AREA" target="NC_CUSTOMER" toMany="true">
+		<db-attribute-pair source="AREACD" target="AREACD"/>
+	</db-relationship>
+	<db-relationship name="divisions" source="AREA" target="NC_DIVISION" toMany="true">
+		<db-attribute-pair source="AREACD" target="AREACD"/>
+	</db-relationship>
+	<db-relationship name="employee" source="AREA" target="EMPLOYEE" toMany="false">
+		<db-attribute-pair source="EMPNO" target="EMPNO"/>
+	</db-relationship>
+	<db-relationship name="persons" source="AREA" target="NC_PERSON" toMany="true">
+		<db-attribute-pair source="AREACD" target="AREACD"/>
+	</db-relationship>
+	<db-relationship name="areas" source="EMPLOYEE" target="AREA" toMany="true">
+		<db-attribute-pair source="EMPNO" target="EMPNO"/>
+	</db-relationship>
+	<db-relationship name="calldocs" source="EMPLOYEE" target="NC_CALLDOC" toMany="true">
+		<db-attribute-pair source="EMPNO" target="EMPNO"/>
+	</db-relationship>
+	<db-relationship name="customers" source="EMPLOYEE" target="NC_CUSTOMER" toMany="true">
+		<db-attribute-pair source="EMPNO" target="EMPNO"/>
+	</db-relationship>
+	<db-relationship name="divisions" source="EMPLOYEE" target="NC_DIVISION" toMany="true">
+		<db-attribute-pair source="EMPNO" target="EMPNO"/>
+	</db-relationship>
+	<db-relationship name="outsidemakes" source="EMPLOYEE" target="NC_OUTSIDE_MAKE" toMany="true">
+		<db-attribute-pair source="EMPNO" target="EMPNO"/>
+	</db-relationship>
+	<db-relationship name="standards" source="EMPLOYEE" target="NC_STANDARD" toMany="true">
+		<db-attribute-pair source="EMPNO" target="EMPNO"/>
+	</db-relationship>
+	<db-relationship name="area" source="NC_CALLDOC" target="AREA" toDependentPK="true" toMany="false">
+		<db-attribute-pair source="AREACD" target="AREACD"/>
+	</db-relationship>
+	<db-relationship name="employee" source="NC_CALLDOC" target="EMPLOYEE" toMany="false">
+		<db-attribute-pair source="EMPNO" target="EMPNO"/>
+	</db-relationship>
+	<db-relationship name="area" source="NC_CUSTOMER" target="AREA" toMany="false">
+		<db-attribute-pair source="AREACD" target="AREACD"/>
+	</db-relationship>
+	<db-relationship name="employee" source="NC_CUSTOMER" target="EMPLOYEE" toMany="false">
+		<db-attribute-pair source="EMPNO" target="EMPNO"/>
+	</db-relationship>
+	<db-relationship name="area" source="NC_DIVISION" target="AREA" toMany="false">
+		<db-attribute-pair source="AREACD" target="AREACD"/>
+	</db-relationship>
+	<db-relationship name="employee" source="NC_DIVISION" target="EMPLOYEE" toMany="false">
+		<db-attribute-pair source="EMPNO" target="EMPNO"/>
+	</db-relationship>
+	<db-relationship name="employee" source="NC_OUTSIDE_MAKE" target="EMPLOYEE" toMany="false">
+		<db-attribute-pair source="EMPNO" target="EMPNO"/>
+	</db-relationship>
+	<db-relationship name="area" source="NC_PERSON" target="AREA" toMany="false">
+		<db-attribute-pair source="AREACD" target="AREACD"/>
+	</db-relationship>
+	<db-relationship name="employee" source="NC_STANDARD" target="EMPLOYEE" toMany="false">
+		<db-attribute-pair source="EMPNO" target="EMPNO"/>
+	</db-relationship>
+	<obj-relationship name="calldocs" source="Area" target="NCCalldoc" deleteRule="Deny" db-relationship-path="calldocs"/>
+	<obj-relationship name="customers" source="Area" target="NCCustomer" deleteRule="Deny" db-relationship-path="customers"/>
+	<obj-relationship name="divisions" source="Area" target="NCDivision" deleteRule="Deny" db-relationship-path="divisions"/>
+	<obj-relationship name="employee" source="Area" target="Employee" deleteRule="Nullify" db-relationship-path="employee"/>
+	<obj-relationship name="persons" source="Area" target="NCPerson" deleteRule="Deny" db-relationship-path="persons"/>
+	<obj-relationship name="areas" source="Employee" target="Area" deleteRule="Deny" db-relationship-path="areas"/>
+	<obj-relationship name="calldocs" source="Employee" target="NCCalldoc" deleteRule="Deny" db-relationship-path="calldocs"/>
+	<obj-relationship name="customers" source="Employee" target="NCCustomer" deleteRule="Deny" db-relationship-path="customers"/>
+	<obj-relationship name="divisions" source="Employee" target="NCDivision" deleteRule="Deny" db-relationship-path="divisions"/>
+	<obj-relationship name="outsidemakes" source="Employee" target="NCOutsideMake" deleteRule="Deny" db-relationship-path="outsidemakes"/>
+	<obj-relationship name="standards" source="Employee" target="NCStandard" deleteRule="Deny" db-relationship-path="standards"/>
+	<obj-relationship name="area" source="NCCalldoc" target="Area" deleteRule="Nullify" db-relationship-path="area"/>
+	<obj-relationship name="employee" source="NCCalldoc" target="Employee" deleteRule="Nullify" db-relationship-path="employee"/>
+	<obj-relationship name="area" source="NCCustomer" target="Area" deleteRule="Nullify" db-relationship-path="area"/>
+	<obj-relationship name="employee" source="NCCustomer" target="Employee" deleteRule="Nullify" db-relationship-path="employee"/>
+	<obj-relationship name="area" source="NCDivision" target="Area" deleteRule="Nullify" db-relationship-path="area"/>
+	<obj-relationship name="employee" source="NCDivision" target="Employee" deleteRule="Nullify" db-relationship-path="employee"/>
+	<obj-relationship name="employee" source="NCOutsideMake" target="Employee" deleteRule="Nullify" db-relationship-path="employee"/>
+	<obj-relationship name="area" source="NCPerson" target="Area" deleteRule="Nullify" db-relationship-path="area"/>
+	<obj-relationship name="employee" source="NCStandard" target="Employee" deleteRule="Nullify" db-relationship-path="employee"/>
 </data-map>
