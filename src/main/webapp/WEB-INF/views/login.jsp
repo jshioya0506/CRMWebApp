@@ -29,7 +29,7 @@
 				</tr>
 				<tr>
 					<td width=600 align="right">メールアドレス</td>
-					<td width=600><input type=text name="LOGIN_ID" size="30"
+					<td width=600><input type=text name="userId" size="30"
 						maxlength="40"></td>
 				</tr>
 				<tr>
