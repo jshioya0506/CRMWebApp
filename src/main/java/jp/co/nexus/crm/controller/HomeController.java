@@ -33,7 +33,9 @@ public class HomeController {
 		
 		model.addAttribute("serverTime", formattedDate );
 		
-		return "home";
+		// View名を返却する。                   ※↓これ
+		// 現在の設定では、"nexus/WEB-INF/views/login.jsp"がレンダリングされる。
+		return "login";
 	}
 	
 }
