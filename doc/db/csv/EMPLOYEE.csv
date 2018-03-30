@@ -1,0 +1,7 @@
+name,email,password,entrymd,retrymd,limitYmd,lostYmd,modified
+String,String,String,int,int,int,int,int
+山本正伸,yamamoto@nexus-nt.co.jp,NXS@nexus,20080401,0,0,0,
+松雪 晃子,matsuyuki@nexus-nt.co.jp,NXS@nexus,20050401,0,0,0,
+島田 菜々子,n_shimada@nexus-nt.co.jp,NXS@nexus,20140401,0,0,0,
+江渕 太郎,t_ebuchi@nexus-nt.co.jp,NXS@nexus,20160926,0,0,0,
+山本 祐加,y_yamamoto@nexus-nt.co.jp,NXS@nexus,,0,0,0,
