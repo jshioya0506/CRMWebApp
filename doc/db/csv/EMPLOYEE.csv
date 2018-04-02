@@ -1,7 +1,7 @@
-name,email,password,entrymd,retrymd,limitYmd,lostYmd,modified
-String,String,String,int,int,int,int,int
-R–{³L,yamamoto@nexus-nt.co.jp,NXS@nexus,20080401,0,0,0,
-¼á Wq,matsuyuki@nexus-nt.co.jp,NXS@nexus,20050401,0,0,0,
-“‡“c ØXq,n_shimada@nexus-nt.co.jp,NXS@nexus,20140401,0,0,0,
-]Ÿº ‘¾˜Y,t_ebuchi@nexus-nt.co.jp,NXS@nexus,20160926,0,0,0,
-R–{ —S‰Á,y_yamamoto@nexus-nt.co.jp,NXS@nexus,,0,0,0,
+name,empNoEd,email,password,entrymd,retrymd,limitYmd,lostYmd,modified
+String,int,String,String,int,int,int,int,int
+å±±æœ¬æ­£ä¼¸,1,yamamoto@nexus-nt.co.jp,NXS@nexus,20080401,0,0,0,
+æ¾é›ª æ™ƒå­,1,matsuyuki@nexus-nt.co.jp,NXS@nexus,20050401,0,0,0,
+å³¶ç”° èœã€…å­,1,n_shimada@nexus-nt.co.jp,NXS@nexus,20140401,0,0,0,
+æ±Ÿæ¸• å¤ªéƒ,1,t_ebuchi@nexus-nt.co.jp,NXS@nexus,20160926,0,0,0,
+å±±æœ¬ ç¥åŠ ,1,y_yamamoto@nexus-nt.co.jp,NXS@nexus,20170703,0,0,0,

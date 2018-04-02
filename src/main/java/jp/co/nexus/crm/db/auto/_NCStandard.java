@@ -18,7 +18,6 @@ public abstract class _NCStandard extends CayenneDataObject {
     public static final String MODIFIED_PROPERTY = "modified";
     public static final String NAME_PROPERTY = "name";
     public static final String SHORT_NAME_PROPERTY = "shortName";
-    public static final String STAND_CD_PROPERTY = "standCd";
     public static final String STAND_KBN_PROPERTY = "standKbn";
     public static final String TOKKIC1_PROPERTY = "tokkic1";
     public static final String TOKKIC2_PROPERTY = "tokkic2";
@@ -34,7 +33,6 @@ public abstract class _NCStandard extends CayenneDataObject {
     public static final String EMPLOYEE_PROPERTY = "employee";
 
     public static final String STANDCD_PK_COLUMN = "STANDCD";
-    public static final String STANDKBN_PK_COLUMN = "STANDKBN";
 
     public void setLimitYmd(int limitYmd) {
         writeProperty(LIMIT_YMD_PROPERTY, limitYmd);
@@ -80,14 +78,6 @@ public abstract class _NCStandard extends CayenneDataObject {
     }
     public String getShortName() {
         return (String)readProperty(SHORT_NAME_PROPERTY);
-    }
-
-    public void setStandCd(int standCd) {
-        writeProperty(STAND_CD_PROPERTY, standCd);
-    }
-    public int getStandCd() {
-        Object value = readProperty(STAND_CD_PROPERTY);
-        return (value != null) ? (Integer) value : 0;
     }
 
     public void setStandKbn(int standKbn) {

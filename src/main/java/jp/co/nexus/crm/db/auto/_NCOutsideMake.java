@@ -14,7 +14,6 @@ public abstract class _NCOutsideMake extends CayenneDataObject {
 
     public static final String AREA_CD_PROPERTY = "areaCd";
     public static final String COMPETE_PROPERTY = "compete";
-    public static final String CUSTOMER_CD_PROPERTY = "customerCd";
     public static final String CUSTOMER_CD_ED_PROPERTY = "customerCdEd";
     public static final String INTARVIEW_PROPERTY = "intarview";
     public static final String LIMIT_YMD_PROPERTY = "limitYmd";
@@ -37,11 +36,6 @@ public abstract class _NCOutsideMake extends CayenneDataObject {
     public static final String EMPLOYEE_PROPERTY = "employee";
 
     public static final String CUSTOMERCD_PK_COLUMN = "CUSTOMERCD";
-    public static final String CUSTOMERCD_ED_PK_COLUMN = "CUSTOMERCD_ED";
-    public static final String DIVISIONCD_PK_COLUMN = "DIVISIONCD";
-    public static final String DIVISIONCD_ED_PK_COLUMN = "DIVISIONCD_ED";
-    public static final String OSMYMD_PK_COLUMN = "OSMYMD";
-    public static final String OSMYMD_SEQ_PK_COLUMN = "OSMYMD_SEQ";
 
     public void setAreaCd(int areaCd) {
         writeProperty(AREA_CD_PROPERTY, areaCd);
@@ -56,14 +50,6 @@ public abstract class _NCOutsideMake extends CayenneDataObject {
     }
     public String getCompete() {
         return (String)readProperty(COMPETE_PROPERTY);
-    }
-
-    public void setCustomerCd(int customerCd) {
-        writeProperty(CUSTOMER_CD_PROPERTY, customerCd);
-    }
-    public int getCustomerCd() {
-        Object value = readProperty(CUSTOMER_CD_PROPERTY);
-        return (value != null) ? (Integer) value : 0;
     }
 
     public void setCustomerCdEd(int customerCdEd) {

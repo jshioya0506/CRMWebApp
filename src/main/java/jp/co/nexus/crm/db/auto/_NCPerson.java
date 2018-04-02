@@ -12,7 +12,6 @@ import jp.co.nexus.crm.db.Area;
  */
 public abstract class _NCPerson extends CayenneDataObject {
 
-    public static final String CUSTOMER_CD_PROPERTY = "customerCd";
     public static final String CUSTOMER_CD_ED_PROPERTY = "customerCdEd";
     public static final String DIVISION_CD_PROPERTY = "divisionCd";
     public static final String DIVISION_CD_ED_PROPERTY = "divisionCdEd";
@@ -30,19 +29,6 @@ public abstract class _NCPerson extends CayenneDataObject {
     public static final String AREA_PROPERTY = "area";
 
     public static final String CUSTOMERCD_PK_COLUMN = "CUSTOMERCD";
-    public static final String CUSTOMERCD_ED_PK_COLUMN = "CUSTOMERCD_ED";
-    public static final String DIVISIONCD_PK_COLUMN = "DIVISIONCD";
-    public static final String DIVISIONCD_ED_PK_COLUMN = "DIVISIONCD_ED";
-    public static final String OSMYMD_PK_COLUMN = "OSMYMD";
-    public static final String OSMYMD_SEQ_PK_COLUMN = "OSMYMD_SEQ";
-
-    public void setCustomerCd(int customerCd) {
-        writeProperty(CUSTOMER_CD_PROPERTY, customerCd);
-    }
-    public int getCustomerCd() {
-        Object value = readProperty(CUSTOMER_CD_PROPERTY);
-        return (value != null) ? (Integer) value : 0;
-    }
 
     public void setCustomerCdEd(int customerCdEd) {
         writeProperty(CUSTOMER_CD_ED_PROPERTY, customerCdEd);

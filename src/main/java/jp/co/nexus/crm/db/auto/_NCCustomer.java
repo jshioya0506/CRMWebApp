@@ -22,7 +22,6 @@ public abstract class _NCCustomer extends CayenneDataObject {
     public static final String CUST_RANK08_PROPERTY = "custRank08";
     public static final String CUST_RANK09_PROPERTY = "custRank09";
     public static final String CUST_RANK10_PROPERTY = "custRank10";
-    public static final String CUSTOMER_CD_PROPERTY = "customerCd";
     public static final String CUSTOMER_CD_ED_PROPERTY = "customerCdEd";
     public static final String EMAIL1_PROPERTY = "email1";
     public static final String EMAIL2_PROPERTY = "email2";
@@ -51,7 +50,6 @@ public abstract class _NCCustomer extends CayenneDataObject {
     public static final String EMPLOYEE_PROPERTY = "employee";
 
     public static final String CUSTOMERCD_PK_COLUMN = "CUSTOMERCD";
-    public static final String CUSTOMERCD_ED_PK_COLUMN = "CUSTOMERCD_ED";
 
     public void setAddress(String address) {
         writeProperty(ADDRESS_PROPERTY, address);
@@ -121,14 +119,6 @@ public abstract class _NCCustomer extends CayenneDataObject {
     }
     public int getCustRank10() {
         Object value = readProperty(CUST_RANK10_PROPERTY);
-        return (value != null) ? (Integer) value : 0;
-    }
-
-    public void setCustomerCd(int customerCd) {
-        writeProperty(CUSTOMER_CD_PROPERTY, customerCd);
-    }
-    public int getCustomerCd() {
-        Object value = readProperty(CUSTOMER_CD_PROPERTY);
         return (value != null) ? (Integer) value : 0;
     }
 

@@ -25,19 +25,10 @@ public abstract class _NCCalldoc extends CayenneDataObject {
     public static final String MODIFIED_PROPERTY = "modified";
     public static final String PERSON_NO_PROPERTY = "personNo";
     public static final String SALES_EMP_ED_PROPERTY = "salesEmpEd";
-    public static final String SALES_EMP_NO_PROPERTY = "salesEmpNo";
     public static final String AREA_PROPERTY = "area";
     public static final String EMPLOYEE_PROPERTY = "employee";
 
-    public static final String AREACD_PK_COLUMN = "AREACD";
-    public static final String CALLTIME_PK_COLUMN = "CALLTIME";
-    public static final String CALLYMD_PK_COLUMN = "CALLYMD";
-    public static final String CUSTOMERCD_PK_COLUMN = "CUSTOMERCD";
-    public static final String CUSTOMERCD_ED_PK_COLUMN = "CUSTOMERCD_ED";
-    public static final String DIVISIONCD_PK_COLUMN = "DIVISIONCD";
-    public static final String DIVISIONCD_ED_PK_COLUMN = "DIVISIONCD_ED";
     public static final String SALES_EMPNO_PK_COLUMN = "SALES_EMPNO";
-    public static final String SALES_EMPNO_ED_PK_COLUMN = "SALES_EMPNO_ED";
 
     public void setCallDoc(String callDoc) {
         writeProperty(CALL_DOC_PROPERTY, callDoc);
@@ -131,14 +122,6 @@ public abstract class _NCCalldoc extends CayenneDataObject {
     }
     public int getSalesEmpEd() {
         Object value = readProperty(SALES_EMP_ED_PROPERTY);
-        return (value != null) ? (Integer) value : 0;
-    }
-
-    public void setSalesEmpNo(int salesEmpNo) {
-        writeProperty(SALES_EMP_NO_PROPERTY, salesEmpNo);
-    }
-    public int getSalesEmpNo() {
-        Object value = readProperty(SALES_EMP_NO_PROPERTY);
         return (value != null) ? (Integer) value : 0;
     }
 

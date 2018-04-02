@@ -20,7 +20,6 @@ import jp.co.nexus.crm.db.NCStandard;
 public abstract class _Employee extends CayenneDataObject {
 
     public static final String EMAIL_PROPERTY = "email";
-    public static final String EMP_NO_PROPERTY = "empNo";
     public static final String EMP_NO_ED_PROPERTY = "empNoEd";
     public static final String ENTRYMD_PROPERTY = "entrymd";
     public static final String LIMIT_YMD_PROPERTY = "limitYmd";
@@ -37,21 +36,12 @@ public abstract class _Employee extends CayenneDataObject {
     public static final String STANDARDS_PROPERTY = "standards";
 
     public static final String EMPNO_PK_COLUMN = "EMPNO";
-    public static final String EMPNO_ED_PK_COLUMN = "EMPNO_ED";
 
     public void setEmail(String email) {
         writeProperty(EMAIL_PROPERTY, email);
     }
     public String getEmail() {
         return (String)readProperty(EMAIL_PROPERTY);
-    }
-
-    public void setEmpNo(int empNo) {
-        writeProperty(EMP_NO_PROPERTY, empNo);
-    }
-    public int getEmpNo() {
-        Object value = readProperty(EMP_NO_PROPERTY);
-        return (value != null) ? (Integer) value : 0;
     }
 
     public void setEmpNoEd(int empNoEd) {

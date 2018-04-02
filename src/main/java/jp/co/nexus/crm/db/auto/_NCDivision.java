@@ -13,9 +13,8 @@ import jp.co.nexus.crm.db.Employee;
  */
 public abstract class _NCDivision extends CayenneDataObject {
 
-    public static final String CUSTOMER_CD_PROPERTY = "customerCd";
     public static final String CUSTOMER_CD_ED_PROPERTY = "customerCdEd";
-    public static final String DIVISION_CD_PROPERTY = "divisionCd";
+    public static final String CUSTOMERCD_PROPERTY = "customercd";
     public static final String DIVISION_CD_ED_PROPERTY = "divisionCdEd";
     public static final String LOST_YMD_PROPERTY = "lostYmd";
     public static final String MODIFIED_PROPERTY = "modified";
@@ -25,18 +24,7 @@ public abstract class _NCDivision extends CayenneDataObject {
     public static final String AREA_PROPERTY = "area";
     public static final String EMPLOYEE_PROPERTY = "employee";
 
-    public static final String CUSTOMERCD_PK_COLUMN = "CUSTOMERCD";
-    public static final String CUSTOMERCD_ED_PK_COLUMN = "CUSTOMERCD_ED";
     public static final String DIVISIONCD_PK_COLUMN = "DIVISIONCD";
-    public static final String DIVISIONCD_ED_PK_COLUMN = "DIVISIONCD_ED";
-
-    public void setCustomerCd(int customerCd) {
-        writeProperty(CUSTOMER_CD_PROPERTY, customerCd);
-    }
-    public int getCustomerCd() {
-        Object value = readProperty(CUSTOMER_CD_PROPERTY);
-        return (value != null) ? (Integer) value : 0;
-    }
 
     public void setCustomerCdEd(int customerCdEd) {
         writeProperty(CUSTOMER_CD_ED_PROPERTY, customerCdEd);
@@ -46,12 +34,11 @@ public abstract class _NCDivision extends CayenneDataObject {
         return (value != null) ? (Integer) value : 0;
     }
 
-    public void setDivisionCd(int divisionCd) {
-        writeProperty(DIVISION_CD_PROPERTY, divisionCd);
+    public void setCustomercd(Integer customercd) {
+        writeProperty(CUSTOMERCD_PROPERTY, customercd);
     }
-    public int getDivisionCd() {
-        Object value = readProperty(DIVISION_CD_PROPERTY);
-        return (value != null) ? (Integer) value : 0;
+    public Integer getCustomercd() {
+        return (Integer)readProperty(CUSTOMERCD_PROPERTY);
     }
 
     public void setDivisionCdEd(int divisionCdEd) {
