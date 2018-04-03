@@ -18,6 +18,7 @@ import jp.co.nexus.crm.db.NCPerson;
  */
 public abstract class _Area extends CayenneDataObject {
 
+    public static final String AREA_CD_PROPERTY = "areaCd";
     public static final String LIMIT_YMD_PROPERTY = "limitYmd";
     public static final String LOST_YMD_PROPERTY = "lostYmd";
     public static final String MODIFIED_PROPERTY = "modified";
@@ -30,6 +31,14 @@ public abstract class _Area extends CayenneDataObject {
     public static final String PERSONS_PROPERTY = "persons";
 
     public static final String AREACD_PK_COLUMN = "AREACD";
+
+    public void setAreaCd(int areaCd) {
+        writeProperty(AREA_CD_PROPERTY, areaCd);
+    }
+    public int getAreaCd() {
+        Object value = readProperty(AREA_CD_PROPERTY);
+        return (value != null) ? (Integer) value : 0;
+    }
 
     public void setLimitYmd(int limitYmd) {
         writeProperty(LIMIT_YMD_PROPERTY, limitYmd);
@@ -105,12 +114,15 @@ public abstract class _Area extends CayenneDataObject {
     }
 
 
-    public void setEmployee(Employee employee) {
-        setToOneTarget(EMPLOYEE_PROPERTY, employee, true);
+    public void addToEmployee(Employee obj) {
+        addToManyTarget(EMPLOYEE_PROPERTY, obj, true);
     }
-
-    public Employee getEmployee() {
-        return (Employee)readProperty(EMPLOYEE_PROPERTY);
+    public void removeFromEmployee(Employee obj) {
+        removeToManyTarget(EMPLOYEE_PROPERTY, obj, true);
+    }
+    @SuppressWarnings("unchecked")
+    public List<Employee> getEmployee() {
+        return (List<Employee>)readProperty(EMPLOYEE_PROPERTY);
     }
 
 

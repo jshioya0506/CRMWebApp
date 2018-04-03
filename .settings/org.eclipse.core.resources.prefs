@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//doc/db/csv/AREA.csv=UTF-8
 encoding//doc/db/csv/EMPLOYEE.csv=UTF-8
 encoding//doc/ui/html/customer_complete_delete.html=UTF-8
 encoding//src/main/webapp/WEB-INF/views=UTF-8

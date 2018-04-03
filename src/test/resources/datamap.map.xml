@@ -7,7 +7,6 @@
 	<property name="defaultPackage" value="jp.co.nexus.crm.db"/>
 	<db-entity name="AREA">
 		<db-attribute name="AREACD" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="3"/>
-		<db-attribute name="EMPNO" type="INTEGER" length="10"/>
 		<db-attribute name="LAST_MODIFIED" type="INTEGER" length="8"/>
 		<db-attribute name="LIMITYMD" type="INTEGER" isMandatory="true" length="8"/>
 		<db-attribute name="LOSTYMD" type="INTEGER" isMandatory="true" length="8"/>
@@ -15,6 +14,7 @@
 		<db-attribute name="SHORT_NAME" type="VARCHAR" isMandatory="true" length="40"/>
 	</db-entity>
 	<db-entity name="EMPLOYEE">
+		<db-attribute name="AREACD" type="INTEGER" isMandatory="true" length="3"/>
 		<db-attribute name="EMAIL" type="VARCHAR" isMandatory="true" length="40"/>
 		<db-attribute name="EMPNO" type="INTEGER" isPrimaryKey="true" isMandatory="true" length="10"/>
 		<db-attribute name="EMPNO_ED" type="INTEGER" isMandatory="true" length="3"/>
@@ -162,6 +162,7 @@
 		<db-attribute name="UPPER" type="INTEGER" isMandatory="true" length="10"/>
 	</db-entity>
 	<obj-entity name="Area" className="jp.co.nexus.crm.db.Area" lock-type="optimistic" dbEntityName="AREA">
+		<obj-attribute name="areaCd" type="int" db-attribute-path="AREACD"/>
 		<obj-attribute name="limitYmd" type="int" db-attribute-path="LIMITYMD"/>
 		<obj-attribute name="lostYmd" type="int" db-attribute-path="LOSTYMD"/>
 		<obj-attribute name="modified" type="int" db-attribute-path="LAST_MODIFIED"/>
@@ -169,7 +170,9 @@
 		<obj-attribute name="shortName" type="java.lang.String" db-attribute-path="SHORT_NAME"/>
 	</obj-entity>
 	<obj-entity name="Employee" className="jp.co.nexus.crm.db.Employee" dbEntityName="EMPLOYEE" exclude-default-listeners="true">
+		<obj-attribute name="areaCd" type="int" db-attribute-path="AREACD"/>
 		<obj-attribute name="email" type="java.lang.String" db-attribute-path="EMAIL"/>
+		<obj-attribute name="empNo" type="int" db-attribute-path="EMPNO"/>
 		<obj-attribute name="empNoEd" type="int" db-attribute-path="EMPNO_ED"/>
 		<obj-attribute name="entrymd" type="java.lang.Integer" db-attribute-path="ENTRYMD"/>
 		<obj-attribute name="limitYmd" type="int" db-attribute-path="LIMITYMD"/>
@@ -306,14 +309,14 @@
 	<db-relationship name="divisions" source="AREA" target="NC_DIVISION" toMany="true">
 		<db-attribute-pair source="AREACD" target="AREACD"/>
 	</db-relationship>
-	<db-relationship name="employee" source="AREA" target="EMPLOYEE" toMany="false">
-		<db-attribute-pair source="EMPNO" target="EMPNO"/>
+	<db-relationship name="employee" source="AREA" target="EMPLOYEE" toMany="true">
+		<db-attribute-pair source="AREACD" target="AREACD"/>
 	</db-relationship>
 	<db-relationship name="persons" source="AREA" target="NC_PERSON" toMany="true">
 		<db-attribute-pair source="AREACD" target="AREACD"/>
 	</db-relationship>
-	<db-relationship name="areas" source="EMPLOYEE" target="AREA" toMany="true">
-		<db-attribute-pair source="EMPNO" target="EMPNO"/>
+	<db-relationship name="areas" source="EMPLOYEE" target="AREA" toMany="false">
+		<db-attribute-pair source="AREACD" target="AREACD"/>
 	</db-relationship>
 	<db-relationship name="calldocs" source="EMPLOYEE" target="NC_CALLDOC" toMany="true">
 		<db-attribute-pair source="EMPNO" target="EMPNO"/>
@@ -360,7 +363,7 @@
 	<obj-relationship name="calldocs" source="Area" target="NCCalldoc" deleteRule="Deny" db-relationship-path="calldocs"/>
 	<obj-relationship name="customers" source="Area" target="NCCustomer" deleteRule="Deny" db-relationship-path="customers"/>
 	<obj-relationship name="divisions" source="Area" target="NCDivision" deleteRule="Deny" db-relationship-path="divisions"/>
-	<obj-relationship name="employee" source="Area" target="Employee" deleteRule="Nullify" db-relationship-path="employee"/>
+	<obj-relationship name="employee" source="Area" target="Employee" deleteRule="Deny" db-relationship-path="employee"/>
 	<obj-relationship name="persons" source="Area" target="NCPerson" deleteRule="Deny" db-relationship-path="persons"/>
 	<obj-relationship name="areas" source="Employee" target="Area" deleteRule="Deny" db-relationship-path="areas"/>
 	<obj-relationship name="calldocs" source="Employee" target="NCCalldoc" deleteRule="Deny" db-relationship-path="calldocs"/>

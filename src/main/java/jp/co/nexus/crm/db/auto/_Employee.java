@@ -20,6 +20,7 @@ import jp.co.nexus.crm.db.NCStandard;
 public abstract class _Employee extends CayenneDataObject {
 
     public static final String EMAIL_PROPERTY = "email";
+    public static final String EMP_NO_PROPERTY = "empNo";
     public static final String EMP_NO_ED_PROPERTY = "empNoEd";
     public static final String ENTRYMD_PROPERTY = "entrymd";
     public static final String LIMIT_YMD_PROPERTY = "limitYmd";
@@ -42,6 +43,14 @@ public abstract class _Employee extends CayenneDataObject {
     }
     public String getEmail() {
         return (String)readProperty(EMAIL_PROPERTY);
+    }
+
+    public void setEmpNo(int empNo) {
+        writeProperty(EMP_NO_PROPERTY, empNo);
+    }
+    public int getEmpNo() {
+        Object value = readProperty(EMP_NO_PROPERTY);
+        return (value != null) ? (Integer) value : 0;
     }
 
     public void setEmpNoEd(int empNoEd) {
@@ -105,15 +114,12 @@ public abstract class _Employee extends CayenneDataObject {
         return (Integer)readProperty(RETRYMD_PROPERTY);
     }
 
-    public void addToAreas(Area obj) {
-        addToManyTarget(AREAS_PROPERTY, obj, true);
+    public void setAreas(Area areas) {
+        setToOneTarget(AREAS_PROPERTY, areas, true);
     }
-    public void removeFromAreas(Area obj) {
-        removeToManyTarget(AREAS_PROPERTY, obj, true);
-    }
-    @SuppressWarnings("unchecked")
-    public List<Area> getAreas() {
-        return (List<Area>)readProperty(AREAS_PROPERTY);
+
+    public Area getAreas() {
+        return (Area)readProperty(AREAS_PROPERTY);
     }
 
 

@@ -16,8 +16,8 @@ public final class DBConstants {
 	public static final String NC_DIVISION = "NC_DIVISION";
 	
 	public static final String[] TABLES = new String[] {
+			AREA,
 			EMPLOYEE,
-//			AREA,
 //			NC_CUSTOMER,
 //			NC_PERSON,
 //			NC_CALLDOC,

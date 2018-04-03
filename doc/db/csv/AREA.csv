@@ -1,0 +1,4 @@
+areaCd,name,shortName,limitYmd,lostYmd,modified
+int,String,String,int,int,int
+1,浜松エリア,H,0,0,0
+2,東京エリア,T,0,0,0
