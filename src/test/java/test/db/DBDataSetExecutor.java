@@ -9,11 +9,13 @@ import java.util.Map;
 
 import org.apache.cayenne.CayenneDataObject;
 import org.apache.cayenne.ObjectContext;
+import org.apache.cayenne.ObjectId;
 import org.apache.cayenne.configuration.server.ServerRuntime;
 import org.apache.log4j.Logger;
 
 import jp.co.nexus.crm.db.Area;
 import jp.co.nexus.crm.db.Employee;
+import jp.co.nexus.crm.db.NCCustomer;
 
 /**
  * データベースのデータセット用
@@ -41,7 +43,16 @@ public class DBDataSetExecutor {
 			// 職員テーブル
 			Map<Integer, Employee> employeeMap = createEmployeeMap(context);
 			
+			// 顧客管理テーブル
+			Map<Integer, NCCustomer> customerMap = createCustomerMap(context);
 			
+			// 担当テーブル
+			
+			// 部署テーブル
+			
+			// 訪問記録テーブル
+			
+			// 
 			
 			// 各テーブルにデータ登録
 			context.commitChanges();
@@ -110,4 +121,37 @@ public class DBDataSetExecutor {
 		}
 		return employeeMap;
 	}
+	
+	private static Map<Integer, NCCustomer> createCustomerMap(
+			ObjectContext context) throws IOException {
+		File csvFile = new File(CSV_DIR, DBConstants.NC_CUSTOMER + ".csv");
+		if (!csvFile.exists()) {
+			throw new FileNotFoundException("CSVファイルが存在しません。[" + csvFile.getName() + "]");
+		}
+		
+		// CSVからサンプルデータを読み込み
+		LOGGER.info("顧客管理テーブルのcsvファイルからサンプルデータをロード開始。");
+		CSVFileReader reader = new CSVFileReader();
+		List<Map<String, Object>> dataMaps = reader.readData(csvFile);
+		LOGGER.debug("dataMaps=" + dataMaps);
+		
+		// テーブルオブジェクトにデータを設定し、テーブルにデータを登録
+		LOGGER.info("サンプルデータを顧客管理テーブルのモデルに設定。");
+		
+		int id = 1;
+		Map<Integer, NCCustomer> employeeMap = new HashMap<Integer, NCCustomer>();
+		for (Map<String, Object> dataMap : dataMaps) {
+			// データ登録対象のテーブルオブジェクトを取得
+			NCCustomer dataObj = context.newObject(NCCustomer.class);
+			// テーブルオブジェクトにデータを設定
+			for (Map.Entry<String, Object> entry : dataMap.entrySet()) {
+				dataObj.writeProperty(entry.getKey(), entry.getValue());
+			}
+			
+			employeeMap.put(Integer.valueOf(id), dataObj);
+		}
+		return employeeMap;
+	}
+	
+	
 }
