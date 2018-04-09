@@ -1,6 +1,8 @@
 package test.db;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 public final class DBConstants {
 	public static final File CSV_DIR = new File("doc/db/csv");
@@ -18,11 +20,22 @@ public final class DBConstants {
 	public static final String[] TABLES = new String[] {
 			AREA,
 			EMPLOYEE,
-//			NC_CUSTOMER,
-//			NC_PERSON,
-//			NC_CALLDOC,
+			NC_CUSTOMER,
+			NC_PERSON,
+			NC_CALLDOC,
 //			NC_OUTSIDE_MAKE,
 //			NC_STANDARD,
-//			NC_DIVISION
+			NC_DIVISION
 	};
+	
+	public static final Map<Integer, Integer> employee2areaCdMap 
+		= new HashMap<Integer, Integer>();
+	
+	static {
+		employee2areaCdMap.put(1, 1);
+		employee2areaCdMap.put(2, 2);
+		employee2areaCdMap.put(3, 2);
+		employee2areaCdMap.put(4, 2);
+		employee2areaCdMap.put(5, 2);
+	}
 }

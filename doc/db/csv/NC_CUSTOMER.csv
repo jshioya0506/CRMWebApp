@@ -1,0 +1,8 @@
+area,employee,customerCdEd,name,sales,numberOfPeople,backbone,workInfo,salesChannels,custRank06,custRank07,custRank08,custRank09,custRank10,personnelProposed,unitPrice,ankenInfo,receiving,approvalRights,staff,relationship,itemRank08,itemRank09,itemRank10,outsideMakeKbn,outsideMakeTok,postNo,address,email1,email2,telNo1,telNo2,limitYmd,lostYmd,modified
+int,int,int,String,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,int,String,String,String,String,String,String,String,String,int,int,int
+1,1,1,株式会社ＡＢＣ,10,10,20,30,20,0,0,0,0,0,10,10,20,30,20,20,20,0,0,0,不可,なし,4300936,静岡県浜松市中区大工町 1-1,h1_hoge@aaa.co.jp,,0534510830,,0,0,
+1,1,1,株式会社ＸＹＺ,10,10,20,30,20,0,0,0,0,0,8,9,15,25,15,15,15,0,0,0,不可,なし,4300936,静岡県浜松市中区大工町 10-10,h2_hoge@aaa.co.jp,,0534510830,,0,0,
+2,2,1,株式会社AtoZ,5,5,14,20,15,0,0,0,0,0,5,5,15,20,20,20,20,0,0,0,不可,なし,1600023,東京都新宿区西新宿7丁目5-25-1,T1_hoge@aaa.co.jp,,0332277333,,0,0,
+2,3,1,株式会社○○○,5,5,14,20,15,0,0,0,0,0,8,9,15,25,15,15,15,0,0,0,不可,なし,1600023,東京都新宿区西新宿7丁目5-25-1,T1_hoge@aaa.co.jp,,0332277333,,0,0,
+2,4,1,株式会社１２３４５,3,3,11,15,15,0,0,0,0,0,5,5,15,20,20,20,20,0,0,0,不可,なし,1600023,東京都新宿区西新宿7丁目5-25-2,T2_hoge@aaa.co.jp,,0332277333,,0,0,
+2,5,1,株式会社○△□,5,5,14,20,15,0,0,0,0,0,5,5,15,20,20,20,20,0,0,0,不可,なし,1600023,東京都新宿区西新宿7丁目5-25-3,T3_hoge@aaa.co.jp,,0332277333,,0,0,

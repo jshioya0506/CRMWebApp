@@ -170,7 +170,6 @@
 		<obj-attribute name="shortName" type="java.lang.String" db-attribute-path="SHORT_NAME"/>
 	</obj-entity>
 	<obj-entity name="Employee" className="jp.co.nexus.crm.db.Employee" dbEntityName="EMPLOYEE" exclude-default-listeners="true">
-		<obj-attribute name="areaCd" type="int" db-attribute-path="AREACD"/>
 		<obj-attribute name="email" type="java.lang.String" db-attribute-path="EMAIL"/>
 		<obj-attribute name="empNo" type="int" db-attribute-path="EMPNO"/>
 		<obj-attribute name="empNoEd" type="int" db-attribute-path="EMPNO_ED"/>
@@ -270,15 +269,14 @@
 		<obj-attribute name="divisionCdEd" type="int" db-attribute-path="DIVISIONCD_ED"/>
 		<obj-attribute name="email1" type="java.lang.String" db-attribute-path="EMAIL1"/>
 		<obj-attribute name="email2" type="java.lang.String" db-attribute-path="EMAIL2"/>
-		<obj-attribute name="empno" type="java.lang.Integer" db-attribute-path="EMPNO"/>
 		<obj-attribute name="limitYmd" type="int" db-attribute-path="LIMTYMD"/>
 		<obj-attribute name="lostYmd" type="int" db-attribute-path="LOSTYMD"/>
 		<obj-attribute name="modified" type="int" db-attribute-path="LAST_MODIFIED"/>
 		<obj-attribute name="name" type="java.lang.String" db-attribute-path="NAME"/>
 		<obj-attribute name="osmYmd" type="int" db-attribute-path="OSMYMD"/>
 		<obj-attribute name="osmYmdSeq" type="int" db-attribute-path="OSMYMD_SEQ"/>
-		<obj-attribute name="telNo1" type="int" db-attribute-path="TELNO1"/>
-		<obj-attribute name="telNo2" type="int" db-attribute-path="TELNO2"/>
+		<obj-attribute name="telNo1" type="java.lang.String" db-attribute-path="TELNO1"/>
+		<obj-attribute name="telNo2" type="java.lang.String" db-attribute-path="TELNO2"/>
 	</obj-entity>
 	<obj-entity name="NCStandard" className="jp.co.nexus.crm.db.NCStandard" lock-type="optimistic" dbEntityName="NC_STANDARD" exclude-default-listeners="true">
 		<obj-attribute name="limitYmd" type="int" db-attribute-path="LIMTYMD"/>
@@ -312,10 +310,10 @@
 	<db-relationship name="employee" source="AREA" target="EMPLOYEE" toMany="true">
 		<db-attribute-pair source="AREACD" target="AREACD"/>
 	</db-relationship>
-	<db-relationship name="persons" source="AREA" target="NC_PERSON" toMany="true">
+	<db-relationship name="person" source="AREA" target="NC_PERSON" toMany="true">
 		<db-attribute-pair source="AREACD" target="AREACD"/>
 	</db-relationship>
-	<db-relationship name="areas" source="EMPLOYEE" target="AREA" toMany="false">
+	<db-relationship name="area" source="EMPLOYEE" target="AREA" toMany="false">
 		<db-attribute-pair source="AREACD" target="AREACD"/>
 	</db-relationship>
 	<db-relationship name="calldocs" source="EMPLOYEE" target="NC_CALLDOC" toMany="true">
@@ -328,6 +326,9 @@
 		<db-attribute-pair source="EMPNO" target="EMPNO"/>
 	</db-relationship>
 	<db-relationship name="outsidemakes" source="EMPLOYEE" target="NC_OUTSIDE_MAKE" toMany="true">
+		<db-attribute-pair source="EMPNO" target="EMPNO"/>
+	</db-relationship>
+	<db-relationship name="person" source="EMPLOYEE" target="NC_PERSON" toMany="false">
 		<db-attribute-pair source="EMPNO" target="EMPNO"/>
 	</db-relationship>
 	<db-relationship name="standards" source="EMPLOYEE" target="NC_STANDARD" toMany="true">
@@ -357,6 +358,9 @@
 	<db-relationship name="area" source="NC_PERSON" target="AREA" toMany="false">
 		<db-attribute-pair source="AREACD" target="AREACD"/>
 	</db-relationship>
+	<db-relationship name="employee" source="NC_PERSON" target="EMPLOYEE" toMany="false">
+		<db-attribute-pair source="EMPNO" target="EMPNO"/>
+	</db-relationship>
 	<db-relationship name="employee" source="NC_STANDARD" target="EMPLOYEE" toMany="false">
 		<db-attribute-pair source="EMPNO" target="EMPNO"/>
 	</db-relationship>
@@ -364,12 +368,13 @@
 	<obj-relationship name="customers" source="Area" target="NCCustomer" deleteRule="Deny" db-relationship-path="customers"/>
 	<obj-relationship name="divisions" source="Area" target="NCDivision" deleteRule="Deny" db-relationship-path="divisions"/>
 	<obj-relationship name="employee" source="Area" target="Employee" deleteRule="Deny" db-relationship-path="employee"/>
-	<obj-relationship name="persons" source="Area" target="NCPerson" deleteRule="Deny" db-relationship-path="persons"/>
-	<obj-relationship name="areas" source="Employee" target="Area" deleteRule="Deny" db-relationship-path="areas"/>
+	<obj-relationship name="persons" source="Area" target="NCPerson" deleteRule="Deny" db-relationship-path="person"/>
+	<obj-relationship name="area" source="Employee" target="Area" deleteRule="Deny" db-relationship-path="area"/>
 	<obj-relationship name="calldocs" source="Employee" target="NCCalldoc" deleteRule="Deny" db-relationship-path="calldocs"/>
 	<obj-relationship name="customers" source="Employee" target="NCCustomer" deleteRule="Deny" db-relationship-path="customers"/>
 	<obj-relationship name="divisions" source="Employee" target="NCDivision" deleteRule="Deny" db-relationship-path="divisions"/>
 	<obj-relationship name="outsidemakes" source="Employee" target="NCOutsideMake" deleteRule="Deny" db-relationship-path="outsidemakes"/>
+	<obj-relationship name="person" source="Employee" target="NCPerson" deleteRule="Deny" db-relationship-path="person"/>
 	<obj-relationship name="standards" source="Employee" target="NCStandard" deleteRule="Deny" db-relationship-path="standards"/>
 	<obj-relationship name="area" source="NCCalldoc" target="Area" deleteRule="Nullify" db-relationship-path="area"/>
 	<obj-relationship name="employee" source="NCCalldoc" target="Employee" deleteRule="Nullify" db-relationship-path="employee"/>
@@ -379,5 +384,6 @@
 	<obj-relationship name="employee" source="NCDivision" target="Employee" deleteRule="Nullify" db-relationship-path="employee"/>
 	<obj-relationship name="employee" source="NCOutsideMake" target="Employee" deleteRule="Nullify" db-relationship-path="employee"/>
 	<obj-relationship name="area" source="NCPerson" target="Area" deleteRule="Nullify" db-relationship-path="area"/>
+	<obj-relationship name="employee" source="NCPerson" target="Employee" deleteRule="Nullify"/>
 	<obj-relationship name="employee" source="NCStandard" target="Employee" deleteRule="Nullify" db-relationship-path="employee"/>
 </data-map>

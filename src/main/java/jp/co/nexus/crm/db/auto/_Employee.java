@@ -9,6 +9,7 @@ import jp.co.nexus.crm.db.NCCalldoc;
 import jp.co.nexus.crm.db.NCCustomer;
 import jp.co.nexus.crm.db.NCDivision;
 import jp.co.nexus.crm.db.NCOutsideMake;
+import jp.co.nexus.crm.db.NCPerson;
 import jp.co.nexus.crm.db.NCStandard;
 
 /**
@@ -29,11 +30,12 @@ public abstract class _Employee extends CayenneDataObject {
     public static final String NAME_PROPERTY = "name";
     public static final String PASSWORD_PROPERTY = "password";
     public static final String RETRYMD_PROPERTY = "retrymd";
-    public static final String AREAS_PROPERTY = "areas";
+    public static final String AREA_PROPERTY = "area";
     public static final String CALLDOCS_PROPERTY = "calldocs";
     public static final String CUSTOMERS_PROPERTY = "customers";
     public static final String DIVISIONS_PROPERTY = "divisions";
     public static final String OUTSIDEMAKES_PROPERTY = "outsidemakes";
+    public static final String PERSON_PROPERTY = "person";
     public static final String STANDARDS_PROPERTY = "standards";
 
     public static final String EMPNO_PK_COLUMN = "EMPNO";
@@ -114,12 +116,12 @@ public abstract class _Employee extends CayenneDataObject {
         return (Integer)readProperty(RETRYMD_PROPERTY);
     }
 
-    public void setAreas(Area areas) {
-        setToOneTarget(AREAS_PROPERTY, areas, true);
+    public void setArea(Area area) {
+        setToOneTarget(AREA_PROPERTY, area, true);
     }
 
-    public Area getAreas() {
-        return (Area)readProperty(AREAS_PROPERTY);
+    public Area getArea() {
+        return (Area)readProperty(AREA_PROPERTY);
     }
 
 
@@ -168,6 +170,15 @@ public abstract class _Employee extends CayenneDataObject {
     @SuppressWarnings("unchecked")
     public List<NCOutsideMake> getOutsidemakes() {
         return (List<NCOutsideMake>)readProperty(OUTSIDEMAKES_PROPERTY);
+    }
+
+
+    public void setPerson(NCPerson person) {
+        setToOneTarget(PERSON_PROPERTY, person, true);
+    }
+
+    public NCPerson getPerson() {
+        return (NCPerson)readProperty(PERSON_PROPERTY);
     }
 
 
