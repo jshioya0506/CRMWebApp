@@ -27,7 +27,7 @@ public abstract class _Area extends CayenneDataObject {
     public static final String CALLDOCS_PROPERTY = "calldocs";
     public static final String CUSTOMERS_PROPERTY = "customers";
     public static final String DIVISIONS_PROPERTY = "divisions";
-    public static final String EMPLOYEE_PROPERTY = "employee";
+    public static final String EMPLOYEES_PROPERTY = "employees";
     public static final String PERSONS_PROPERTY = "persons";
 
     public static final String AREACD_PK_COLUMN = "AREACD";
@@ -114,15 +114,15 @@ public abstract class _Area extends CayenneDataObject {
     }
 
 
-    public void addToEmployee(Employee obj) {
-        addToManyTarget(EMPLOYEE_PROPERTY, obj, true);
+    public void addToEmployees(Employee obj) {
+        addToManyTarget(EMPLOYEES_PROPERTY, obj, true);
     }
-    public void removeFromEmployee(Employee obj) {
-        removeToManyTarget(EMPLOYEE_PROPERTY, obj, true);
+    public void removeFromEmployees(Employee obj) {
+        removeToManyTarget(EMPLOYEES_PROPERTY, obj, true);
     }
     @SuppressWarnings("unchecked")
-    public List<Employee> getEmployee() {
-        return (List<Employee>)readProperty(EMPLOYEE_PROPERTY);
+    public List<Employee> getEmployees() {
+        return (List<Employee>)readProperty(EMPLOYEES_PROPERTY);
     }
 
 

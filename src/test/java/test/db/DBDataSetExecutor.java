@@ -44,7 +44,7 @@ public class DBDataSetExecutor {
 			Map<Integer, Area> areaMap = createAreaMap(context);
 						
 			// 職員テーブル
-			Map<Integer, Employee> employeeMap = createEmployeeMap(context);
+			Map<Integer, Employee> employeeMap = createEmployeeMap(context, areaMap);
 			
 			// 顧客管理テーブル
 			Map<Integer, NCCustomer> customerMap 
@@ -54,14 +54,11 @@ public class DBDataSetExecutor {
 			Map<Integer,NCPerson> personMap = createPersonMap(context, areaMap, employeeMap);
 			
 			// 部署テーブル
-			Map<Integer,NCDivision> divisionMap = createDivisionMap(context);
+			Map<Integer,NCDivision> divisionMap = createDivisionMap(context, areaMap, employeeMap);
 			
 			// 訪問記録テーブル
-			Map<Integer,NCCalldoc> callDocMap = createCallDocMap(context);
+			Map<Integer,NCCalldoc> callDocMap = createCallDocMap(context, areaMap, employeeMap);
 
-
-			
-			
 			// 各テーブルにデータ登録
 			context.commitChanges();
 
@@ -102,7 +99,8 @@ public class DBDataSetExecutor {
 	}
 	
 	private static Map<Integer, Employee> createEmployeeMap(
-			ObjectContext context) throws IOException {
+			ObjectContext context,
+			Map<Integer, Area> areaMap) throws IOException {
 		File csvFile = new File(CSV_DIR, DBConstants.EMPLOYEE + ".csv");
 		if (!csvFile.exists()) {
 			throw new FileNotFoundException("CSVファイルが存在しません。[" + csvFile.getName() + "]");
@@ -112,7 +110,7 @@ public class DBDataSetExecutor {
 		LOGGER.info("職員テーブルのcsvファイルからサンプルデータをロード開始。");
 		CSVFileReader reader = new CSVFileReader();
 		List<Map<String, Object>> dataMaps = reader.readData(csvFile);
-		LOGGER.debug("dataMaps=" + dataMaps);
+		LOGGER.info("dataMaps=" + dataMaps);
 		
 		// テーブルオブジェクトにデータを設定し、テーブルにデータを登録
 		LOGGER.info("サンプルデータを職員テーブルのモデルに設定。");
@@ -122,7 +120,14 @@ public class DBDataSetExecutor {
 			Employee dataObj = context.newObject(Employee.class);;
 			// テーブルオブジェクトにデータを設定
 			for (Map.Entry<String, Object> entry : dataMap.entrySet()) {
-				dataObj.writeProperty(entry.getKey(), entry.getValue());
+				if ("area".equals(entry.getKey())) {
+					Integer areaCd = (Integer)entry.getValue();
+					Area area = areaMap.get(areaCd);
+					dataObj.setArea(area);
+					area.getEmployees().add(dataObj);
+				} else {
+					dataObj.writeProperty(entry.getKey(), entry.getValue());
+				}
 			}
 			int empNo = dataObj.getEmpNo();
 			employeeMap.put(empNo, dataObj);
@@ -143,7 +148,7 @@ public class DBDataSetExecutor {
 		LOGGER.info("顧客管理テーブルのcsvファイルからサンプルデータをロード開始。");
 		CSVFileReader reader = new CSVFileReader();
 		List<Map<String, Object>> dataMaps = reader.readData(csvFile);
-		LOGGER.debug("dataMaps=" + dataMaps);
+		LOGGER.info("dataMaps=" + dataMaps);
 		
 		// テーブルオブジェクトにデータを設定し、テーブルにデータを登録
 		LOGGER.info("サンプルデータを顧客管理テーブルのモデルに設定。");
@@ -160,7 +165,7 @@ public class DBDataSetExecutor {
 					Area area = areaMap.get(areaCd);
 					dataObj.setArea(area);
 					area.getCustomers().add(dataObj);
-				}else if ("customer".equals(entry.getKey())) {
+				}else if ("employee".equals(entry.getKey())) {
 					Integer empNo = (Integer)entry.getValue();
 					Employee employee = employeeMap.get(empNo);
 					dataObj.setEmployee(employee);
@@ -174,7 +179,10 @@ public class DBDataSetExecutor {
 		return customerMap;
 	}
 	
-	private static Map<Integer, NCCalldoc> createCallDocMap(ObjectContext context) throws IOException {
+	private static Map<Integer, NCCalldoc> createCallDocMap(
+			ObjectContext context,
+			Map<Integer, Area> areaMap,
+			Map<Integer, Employee> employeeMap) throws IOException {
 		File csvFile = new File(CSV_DIR, DBConstants.NC_CALLDOC + ".csv");
 		if (!csvFile.exists()) {
 			throw new FileNotFoundException("CSVファイルが存在しません。[" + csvFile.getName() + "]");
@@ -184,7 +192,7 @@ public class DBDataSetExecutor {
 		LOGGER.info("訪問記録テーブルのcsvファイルからサンプルデータをロード開始。");
 		CSVFileReader reader = new CSVFileReader();
 		List<Map<String, Object>> dataMaps = reader.readData(csvFile);
-		LOGGER.debug("dataMaps=" + dataMaps);
+		LOGGER.info("dataMaps=" + dataMaps);
 		
 		// テーブルオブジェクトにデータを設定し、テーブルにデータを登録
 		LOGGER.info("サンプルデータを訪問記録テーブルのモデルに設定。");
@@ -196,15 +204,29 @@ public class DBDataSetExecutor {
 			NCCalldoc dataObj = context.newObject(NCCalldoc.class);
 			// テーブルオブジェクトにデータを設定
 			for (Map.Entry<String, Object> entry : dataMap.entrySet()) {
-				dataObj.writeProperty(entry.getKey(), entry.getValue());
+				if ("area".equals(entry.getKey())) {
+					Integer areaCd = (Integer)entry.getValue();
+					Area area = areaMap.get(areaCd);
+					dataObj.setArea(area);
+					area.getCalldocs().add(dataObj);
+				}else if ("employee".equals(entry.getKey())) {
+					Integer empNo = (Integer)entry.getValue();
+					Employee employee = employeeMap.get(empNo);
+					dataObj.setEmployee(employee);
+					employee.getCalldocs().add(dataObj);
+				} else {
+					dataObj.writeProperty(entry.getKey(), entry.getValue());
+				}
 			}
-			
 			calldocMap.put(Integer.valueOf(id), dataObj);
 		}
 		return calldocMap;
 	}
 
-	private static Map<Integer, NCDivision> createDivisionMap(ObjectContext context) throws IOException {
+	private static Map<Integer, NCDivision> createDivisionMap(
+			ObjectContext context,
+			Map<Integer, Area> areaMap,
+			Map<Integer, Employee> employeeMap) throws IOException {
 		File csvFile = new File(CSV_DIR, DBConstants.NC_DIVISION + ".csv");
 		if (!csvFile.exists()) {
 			throw new FileNotFoundException("CSVファイルが存在しません。[" + csvFile.getName() + "]");
@@ -214,7 +236,7 @@ public class DBDataSetExecutor {
 		LOGGER.info("部署テーブルのcsvファイルからサンプルデータをロード開始。");
 		CSVFileReader reader = new CSVFileReader();
 		List<Map<String, Object>> dataMaps = reader.readData(csvFile);
-		LOGGER.debug("dataMaps=" + dataMaps);
+		LOGGER.info("dataMaps=" + dataMaps);
 		
 		// テーブルオブジェクトにデータを設定し、テーブルにデータを登録
 		LOGGER.info("サンプルデータを部署テーブルのモデルに設定。");
@@ -226,7 +248,19 @@ public class DBDataSetExecutor {
 			NCDivision dataObj = context.newObject(NCDivision.class);
 			// テーブルオブジェクトにデータを設定
 			for (Map.Entry<String, Object> entry : dataMap.entrySet()) {
-				dataObj.writeProperty(entry.getKey(), entry.getValue());
+				if ("area".equals(entry.getKey())) {
+					Integer areaCd = (Integer)entry.getValue();
+					Area area = areaMap.get(areaCd);
+					dataObj.setArea(area);
+					area.getDivisions().add(dataObj);
+				}else if ("employee".equals(entry.getKey())) {
+					Integer empNo = (Integer)entry.getValue();
+					Employee employee = employeeMap.get(empNo);
+					dataObj.setEmployee(employee);
+					employee.getDivisions().add(dataObj);
+				} else {
+					dataObj.writeProperty(entry.getKey(), entry.getValue());
+				}
 			}
 			
 			divisionMap.put(Integer.valueOf(id), dataObj);
@@ -247,7 +281,7 @@ public class DBDataSetExecutor {
 		LOGGER.info("担当者テーブルのcsvファイルからサンプルデータをロード開始。");
 		CSVFileReader reader = new CSVFileReader();
 		List<Map<String, Object>> dataMaps = reader.readData(csvFile);
-		LOGGER.debug("dataMaps=" + dataMaps);
+		LOGGER.info("dataMaps=" + dataMaps);
 		
 		// テーブルオブジェクトにデータを設定し、テーブルにデータを登録
 		LOGGER.info("サンプルデータを担当者テーブルのモデルに設定。");
@@ -264,11 +298,11 @@ public class DBDataSetExecutor {
 					Area area = areaMap.get(areaCd);
 					dataObj.setArea(area);
 					area.getPersons().add(dataObj);
-				}else if ("customer".equals(entry.getKey())) {
+				}else if ("employee".equals(entry.getKey())) {
 					Integer empNo = (Integer)entry.getValue();
 					Employee employee = employeeMap.get(empNo);
 					dataObj.setEmployee(employee);
-					employee.setPerson(dataObj);
+					employee.getPersons().add(dataObj);
 				} else {
 					dataObj.writeProperty(entry.getKey(), entry.getValue());
 				}

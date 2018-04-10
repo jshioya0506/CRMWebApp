@@ -1,7 +1,7 @@
-empNo,name,empNoEd,email,password,entrymd,retrymd,limitYmd,lostYmd,modified,areaCd
+empNo,name,empNoEd,email,password,entrymd,retrymd,limitYmd,lostYmd,modified,area
 int,String,int,String,String,int,int,int,int,int,int
-1,山本正伸,1,yamamoto@nexus-nt.co.jp,NXS@nexus,20080401,0,0,0,1
-2,松雪 晃子,1,matsuyuki@nexus-nt.co.jp,NXS@nexus,20050401,0,0,0,2
-3,島田 菜々子,1,n_shimada@nexus-nt.co.jp,NXS@nexus,20140401,0,0,0,2
-4,江渕 太郎,1,t_ebuchi@nexus-nt.co.jp,NXS@nexus,20160926,0,0,0,2
-5,山本 祐加,1,y_yamamoto@nexus-nt.co.jp,NXS@nexus,20170703,0,0,0,2
+1,山本正伸,1,yamamoto@nexus-nt.co.jp,NXS@nexus,20080401,0,0,0,0,1
+2,松雪 晃子,1,matsuyuki@nexus-nt.co.jp,NXS@nexus,20050401,0,0,0,0,2
+3,島田 菜々子,1,n_shimada@nexus-nt.co.jp,NXS@nexus,20140401,0,0,0,0,2
+4,江渕 太郎,1,t_ebuchi@nexus-nt.co.jp,NXS@nexus,20160926,0,0,0,0,2
+5,山本 祐加,1,y_yamamoto@nexus-nt.co.jp,NXS@nexus,20170703,0,0,0,0,2

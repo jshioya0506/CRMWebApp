@@ -24,11 +24,10 @@ public abstract class _NCCalldoc extends CayenneDataObject {
     public static final String LOST_YMD_PROPERTY = "lostYmd";
     public static final String MODIFIED_PROPERTY = "modified";
     public static final String PERSON_NO_PROPERTY = "personNo";
-    public static final String SALES_EMP_ED_PROPERTY = "salesEmpEd";
     public static final String AREA_PROPERTY = "area";
     public static final String EMPLOYEE_PROPERTY = "employee";
 
-    public static final String SALES_EMPNO_PK_COLUMN = "SALES_EMPNO";
+    public static final String VISIT_RECORD_NO_PK_COLUMN = "VISIT_RECORD_NO";
 
     public void setCallDoc(String callDoc) {
         writeProperty(CALL_DOC_PROPERTY, callDoc);
@@ -114,14 +113,6 @@ public abstract class _NCCalldoc extends CayenneDataObject {
     }
     public int getPersonNo() {
         Object value = readProperty(PERSON_NO_PROPERTY);
-        return (value != null) ? (Integer) value : 0;
-    }
-
-    public void setSalesEmpEd(int salesEmpEd) {
-        writeProperty(SALES_EMP_ED_PROPERTY, salesEmpEd);
-    }
-    public int getSalesEmpEd() {
-        Object value = readProperty(SALES_EMP_ED_PROPERTY);
         return (value != null) ? (Integer) value : 0;
     }
 

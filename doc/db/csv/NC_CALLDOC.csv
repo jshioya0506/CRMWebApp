@@ -1,7 +1,13 @@
-empNo,name,empNoEd,email,password,entrymd,retrymd,limitYmd,lostYmd,modified,areaCd
-int,String,int,String,String,int,int,int,int,int,int
-1,山本正伸,1,yamamoto@nexus-nt.co.jp,NXS@nexus,20080401,0,0,0,1
-2,松雪 晃子,1,matsuyuki@nexus-nt.co.jp,NXS@nexus,20050401,0,0,0,2
-3,島田 菜々子,1,n_shimada@nexus-nt.co.jp,NXS@nexus,20140401,0,0,0,2
-4,江渕 太郎,1,t_ebuchi@nexus-nt.co.jp,NXS@nexus,20160926,0,0,0,2
-5,山本 祐加,1,y_yamamoto@nexus-nt.co.jp,NXS@nexus,20170703,0,0,0,2
+area,employee,callDoc,callTime,callYmd,customerCd,customerCdEd,divisionCd,divisionCdEd,personNo,limitYmd,lostYmd,modified
+int,int,String,int,int,int,int,int,int,int,int,int,int
+1,1,商談による訪問。,930,20171121,1,1,1,1,1,0,0,0
+1,1,打ち合わせによる訪問。,1330,20171025,1,1,1,1,1,0,0,0
+1,1,打ち合わせによる訪問。,930,20171122,2,1,2,1,2,0,0,0
+1,1,商談による訪問。,1330,20171023,2,1,2,1,2,0,0,0
+2,2,商談による訪問。,930,20171127,3,1,3,1,3,0,0,0
+2,2,打ち合わせによる訪問。,1630,20171025,3,1,3,1,3,0,0,0
+2,3,商談による訪問。,930,20171111,4,1,4,1,4,0,0,0
+2,3,打ち合わせによる訪問。,1330,20171017,4,1,4,1,4,0,0,0
+2,4,商談による訪問。,1030,20171121,5,1,5,1,5,0,0,0
+2,4,打ち合わせによる訪問。,1430,20171025,5,1,5,1,5,0,0,0
+2,5,打ち合わせによる訪問。,1530,20171026,6,1,6,1,6,0,0,0

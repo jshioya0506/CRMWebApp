@@ -14,22 +14,21 @@ import jp.co.nexus.crm.db.Employee;
 public abstract class _NCPerson extends CayenneDataObject {
 
     public static final String CUSTOMER_CD_ED_PROPERTY = "customerCdEd";
-    public static final String DIVISION_CD_PROPERTY = "divisionCd";
+    public static final String CUSTOMERCD_PROPERTY = "customercd";
     public static final String DIVISION_CD_ED_PROPERTY = "divisionCdEd";
+    public static final String DIVISIONCD_PROPERTY = "divisioncd";
     public static final String EMAIL1_PROPERTY = "email1";
     public static final String EMAIL2_PROPERTY = "email2";
     public static final String LIMIT_YMD_PROPERTY = "limitYmd";
     public static final String LOST_YMD_PROPERTY = "lostYmd";
     public static final String MODIFIED_PROPERTY = "modified";
     public static final String NAME_PROPERTY = "name";
-    public static final String OSM_YMD_PROPERTY = "osmYmd";
-    public static final String OSM_YMD_SEQ_PROPERTY = "osmYmdSeq";
     public static final String TEL_NO1_PROPERTY = "telNo1";
     public static final String TEL_NO2_PROPERTY = "telNo2";
     public static final String AREA_PROPERTY = "area";
     public static final String EMPLOYEE_PROPERTY = "employee";
 
-    public static final String CUSTOMERCD_PK_COLUMN = "CUSTOMERCD";
+    public static final String PERSONAL_NO_PK_COLUMN = "PERSONAL_NO";
 
     public void setCustomerCdEd(int customerCdEd) {
         writeProperty(CUSTOMER_CD_ED_PROPERTY, customerCdEd);
@@ -39,11 +38,11 @@ public abstract class _NCPerson extends CayenneDataObject {
         return (value != null) ? (Integer) value : 0;
     }
 
-    public void setDivisionCd(int divisionCd) {
-        writeProperty(DIVISION_CD_PROPERTY, divisionCd);
+    public void setCustomercd(int customercd) {
+        writeProperty(CUSTOMERCD_PROPERTY, customercd);
     }
-    public int getDivisionCd() {
-        Object value = readProperty(DIVISION_CD_PROPERTY);
+    public int getCustomercd() {
+        Object value = readProperty(CUSTOMERCD_PROPERTY);
         return (value != null) ? (Integer) value : 0;
     }
 
@@ -52,6 +51,14 @@ public abstract class _NCPerson extends CayenneDataObject {
     }
     public int getDivisionCdEd() {
         Object value = readProperty(DIVISION_CD_ED_PROPERTY);
+        return (value != null) ? (Integer) value : 0;
+    }
+
+    public void setDivisioncd(int divisioncd) {
+        writeProperty(DIVISIONCD_PROPERTY, divisioncd);
+    }
+    public int getDivisioncd() {
+        Object value = readProperty(DIVISIONCD_PROPERTY);
         return (value != null) ? (Integer) value : 0;
     }
 
@@ -98,22 +105,6 @@ public abstract class _NCPerson extends CayenneDataObject {
     }
     public String getName() {
         return (String)readProperty(NAME_PROPERTY);
-    }
-
-    public void setOsmYmd(int osmYmd) {
-        writeProperty(OSM_YMD_PROPERTY, osmYmd);
-    }
-    public int getOsmYmd() {
-        Object value = readProperty(OSM_YMD_PROPERTY);
-        return (value != null) ? (Integer) value : 0;
-    }
-
-    public void setOsmYmdSeq(int osmYmdSeq) {
-        writeProperty(OSM_YMD_SEQ_PROPERTY, osmYmdSeq);
-    }
-    public int getOsmYmdSeq() {
-        Object value = readProperty(OSM_YMD_SEQ_PROPERTY);
-        return (value != null) ? (Integer) value : 0;
     }
 
     public void setTelNo1(String telNo1) {
