@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * 
+ * ログイン画面表示時に呼ばれるコントローラ
  * @author jshioya
  *
  */
