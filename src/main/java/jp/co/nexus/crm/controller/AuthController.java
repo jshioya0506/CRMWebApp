@@ -14,7 +14,7 @@ import jp.co.nexus.crm.facade.AuthFacade;
 import jp.co.nexus.crm.form.LoginForm;
 
 /**
- * 
+ * 認証処理と顧客一覧を表示するコントローラ
  * @author jshioya
  *
  */
@@ -44,6 +44,7 @@ public class AuthController {
 			return "login";
 		}
 		
+		// 顧客一覧表示
 		
 		
 		return "customer_list";
