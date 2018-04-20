@@ -1,5 +1,10 @@
 package jp.co.nexus.crm.util;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * 画面表示用のデータフォーマットクラス
  * @author jshioya
@@ -91,6 +96,23 @@ public final class DataFormatUtil implements DataFormatConstants {
 		} 
 		
 		return String.format("%s-%s", comRank, prjRank);
+	}
+	
+	public static String formatDate(String ymd) {
+		String formatYMD = null;
+		
+		SimpleDateFormat formatter 
+			= (SimpleDateFormat)DateFormat.getDateInstance();
+		formatter.applyPattern("yyyyMMdd");
+		try {
+			Date date = formatter.parse(ymd);
+			formatter.applyPattern("yyyy/MM/dd");
+			formatYMD = formatter.format(date);
+		}
+		catch (ParseException ex) {
+			
+		}
+		return formatYMD;
 	}
 	
 }

@@ -38,7 +38,7 @@
 				</tr>
 				<tr>
 					<td width=600 align="right">パスワード</td>
-					<td width=600><input type=password name="LOGIN_PASSWORD"
+					<td width=600><input type=password name="password"
 						size="30" maxlength="40"></td>
 				</tr>
 				<tr>
