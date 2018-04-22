@@ -198,39 +198,43 @@
 		<obj-attribute name="personNo" type="int" db-attribute-path="PERSONNO"/>
 	</obj-entity>
 	<obj-entity name="NCCustomer" className="jp.co.nexus.crm.db.NCCustomer" lock-type="optimistic" dbEntityName="NC_CUSTOMER" exclude-superclass-listeners="true">
+		
+		<obj-attribute name="name" type="java.lang.String" db-attribute-path="NAME"/>
+		<obj-attribute name="postNo" type="java.lang.String" db-attribute-path="POSTNO"/>
 		<obj-attribute name="address" type="java.lang.String" db-attribute-path="ADDRESS"/>
-		<obj-attribute name="ankenInfo" type="int" db-attribute-path="ITEM_RANK_KBN03"/>
-		<obj-attribute name="approvalRights" type="int" db-attribute-path="ITEM_RANK_KBN05"/>
+		<obj-attribute name="telNo1" type="java.lang.String" db-attribute-path="TELNO1"/>
+		<obj-attribute name="telNo2" type="java.lang.String" db-attribute-path="TELNO2"/>
+		<obj-attribute name="email1" type="java.lang.String" db-attribute-path="EMAIL1"/>
+		<obj-attribute name="email2" type="java.lang.String" db-attribute-path="EMAIL2"/>
+		<obj-attribute name="outsideMakeKbn" type="java.lang.String" db-attribute-path="OUTSIDE_MAKE_KBN"/>
+		<obj-attribute name="outsideMakeTok" type="java.lang.String" db-attribute-path="OUTSIDE_MAKE_TOK"/>
+		<!-- 「企業」情報 -->
+		<obj-attribute name="sales" type="int" db-attribute-path="CUST_RANK_KBN01"/>
+		<obj-attribute name="numberOfPeople" type="int" db-attribute-path="CUST_RANK_KBN02"/>
 		<obj-attribute name="backbone" type="int" db-attribute-path="CUST_RANK_KBN03"/>
+		<obj-attribute name="workInfo" type="int" db-attribute-path="CUST_RANK_KBN04"/>
+		<obj-attribute name="salesChannels" type="int" db-attribute-path="CUST_RANK_KBN05"/>
 		<obj-attribute name="custRank06" type="int" db-attribute-path="CUST_RANK_KBN06"/>
 		<obj-attribute name="custRank07" type="int" db-attribute-path="CUST_RANK_KBN07"/>
 		<obj-attribute name="custRank08" type="int" db-attribute-path="CUST_RANK_KBN08"/>
 		<obj-attribute name="custRank09" type="int" db-attribute-path="CUST_RANK_KBN09"/>
 		<obj-attribute name="custRank10" type="int" db-attribute-path="CUST_RANK_KBN10"/>
-		<obj-attribute name="customerCdEd" type="int" db-attribute-path="CUSTOMERCD_ED"/>
-		<obj-attribute name="email1" type="java.lang.String" db-attribute-path="EMAIL1"/>
-		<obj-attribute name="email2" type="java.lang.String" db-attribute-path="EMAIL2"/>
+		<!-- 「案件の質」情報 -->
+		<obj-attribute name="personnelProposed" type="int" db-attribute-path="ITEM_RANK_KBN01"/>
+		<obj-attribute name="unitPrice" type="int" db-attribute-path="ITEM_RANK_KBN02"/>
+		<obj-attribute name="ankenInfo" type="int" db-attribute-path="ITEM_RANK_KBN03"/>
+		<obj-attribute name="receiving" type="int" db-attribute-path="ITEM_RANK_KBN04"/>
+		<obj-attribute name="approvalRights" type="int" db-attribute-path="ITEM_RANK_KBN05"/>
+		<obj-attribute name="staff" type="int" db-attribute-path="ITEM_RANK_KBN06"/>
+		<obj-attribute name="relationship" type="int" db-attribute-path="ITEM_RANK_KBN07"/>
 		<obj-attribute name="itemRank08" type="int" db-attribute-path="ITEM_RANK_KBN08"/>
 		<obj-attribute name="itemRank09" type="int" db-attribute-path="ITEM_RANK_KBN09"/>
 		<obj-attribute name="itemRank10" type="int" db-attribute-path="ITEM_RANK_KBN10"/>
+		<obj-attribute name="customerCdEd" type="int" db-attribute-path="CUSTOMERCD_ED"/>
+		
 		<obj-attribute name="limitYmd" type="int" db-attribute-path="LIMTYMD"/>
 		<obj-attribute name="lostYmd" type="int" db-attribute-path="LOSTYMD"/>
 		<obj-attribute name="modified" type="int" db-attribute-path="LAST_MODIFIED"/>
-		<obj-attribute name="name" type="java.lang.String" db-attribute-path="NAME"/>
-		<obj-attribute name="numberOfPeople" type="int" db-attribute-path="CUST_RANK_KBN02"/>
-		<obj-attribute name="outsideMakeKbn" type="java.lang.String" db-attribute-path="OUTSIDE_MAKE_KBN"/>
-		<obj-attribute name="outsideMakeTok" type="java.lang.String" db-attribute-path="OUTSIDE_MAKE_TOK"/>
-		<obj-attribute name="personnelProposed" type="int" db-attribute-path="ITEM_RANK_KBN01"/>
-		<obj-attribute name="postNo" type="java.lang.String" db-attribute-path="POSTNO"/>
-		<obj-attribute name="receiving" type="int" db-attribute-path="ITEM_RANK_KBN04"/>
-		<obj-attribute name="relationship" type="int" db-attribute-path="ITEM_RANK_KBN07"/>
-		<obj-attribute name="sales" type="int" db-attribute-path="CUST_RANK_KBN01"/>
-		<obj-attribute name="salesChannels" type="int" db-attribute-path="CUST_RANK_KBN05"/>
-		<obj-attribute name="staff" type="int" db-attribute-path="ITEM_RANK_KBN06"/>
-		<obj-attribute name="telNo1" type="java.lang.String" db-attribute-path="TELNO1"/>
-		<obj-attribute name="telNo2" type="java.lang.String" db-attribute-path="TELNO2"/>
-		<obj-attribute name="unitPrice" type="int" db-attribute-path="ITEM_RANK_KBN02"/>
-		<obj-attribute name="workInfo" type="int" db-attribute-path="CUST_RANK_KBN04"/>
 	</obj-entity>
 	<obj-entity name="NCDivision" className="jp.co.nexus.crm.db.NCDivision" lock-type="optimistic" dbEntityName="NC_DIVISION" exclude-superclass-listeners="true">
 		<obj-attribute name="customerCdEd" type="int" db-attribute-path="CUSTOMERCD_ED"/>

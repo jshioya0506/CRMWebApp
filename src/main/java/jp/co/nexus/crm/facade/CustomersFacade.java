@@ -22,12 +22,17 @@ import jp.co.nexus.crm.db.NCDivision;
 import jp.co.nexus.crm.db.NCPerson;
 import jp.co.nexus.crm.util.DataFormatUtil;
 
-public class StoreCustomersFacade {
+/**
+ * 
+ * @author jshioya
+ *
+ */
+public class CustomersFacade {
 
 	/**
-	 * 顧客
-	 * @param model
-	 * @return
+	 * 顧客の一覧情報を取得してモデルに設定
+	 * @param model Sprinｇのモデルクラス
+	 * @return 正常に処理できた場合はtrue
 	 */
 	public boolean doAction (Model model) {
 		
@@ -85,7 +90,7 @@ public class StoreCustomersFacade {
 				// 担当営業 
 				infoBean.setStaffName(employee.getName());
 				// ランク
-				String rank = DataFormatUtil.formatCustomerRank(comScore, prjScore);
+				String rank = getRank(customer);
 				infoBean.setRank(rank);
 				// 社名
 				infoBean.setCompanyName(customer.getName());
@@ -93,7 +98,6 @@ public class StoreCustomersFacade {
 				infoBean.setPostAddress(customer.getAddress());
 				// 担当者
 				infoBean.setPersonnelName(person.getName());
-				
 				// 部署名
 				NCDivision division = getDivision(
 					context,
@@ -123,10 +127,13 @@ public class StoreCustomersFacade {
 			}
 		}
 		
+		// 顧客の一覧情報をモデルへ設定
 		model.addAttribute("bean", bean);
 		
 		return true;
 	}
+	
+	
 	
 	private Integer getCustomerCode(NCCustomer customer) {
 		// 顧客番号
@@ -218,5 +225,39 @@ public class StoreCustomersFacade {
 		} else {
 			return null;
 		}
+	}
+	
+	private String getRank(NCCustomer customer) {
+		// 企業ランク合計スコア
+		int companyScoreSum = 0;
+		// 売上
+		companyScoreSum += customer.getSales();
+		// 人数
+		companyScoreSum += customer.getNumberOfPeople();
+		// 規模(バックボーン)
+		companyScoreSum += customer.getBackbone();
+		// 事業内容
+		companyScoreSum += customer.getWorkInfo();
+		// 商流
+		companyScoreSum += customer.getSalesChannels();
+		
+		// 案件の質をランク付け
+		int annkenScoreSum = 0;
+		// 要員提案(personnelProposed)
+		annkenScoreSum += customer.getPersonnelProposed();
+		// 単価(unitPrice)
+		annkenScoreSum += customer.getUnitPrice();
+		// 案件内容(ankenInfo)
+		annkenScoreSum += customer.getAnkenInfo();
+		// 若手受入れ(receiving)
+		annkenScoreSum += customer.getReceiving();
+		// 決裁権(approvalRights)
+		annkenScoreSum += customer.getApprovalRights();
+		// 担当窓口(staff)
+		annkenScoreSum += customer.getStaff();
+		// 担当者との関係性(relationship)
+		annkenScoreSum += customer.getRelationship();
+		
+		return DataFormatUtil.formatCustomerRank(companyScoreSum, annkenScoreSum);
 	}
 }
