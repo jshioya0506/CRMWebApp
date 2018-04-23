@@ -1,7 +1,7 @@
 package jp.co.nexus.crm.form;
 
 /**
- * ログイン情報
+ * ログインフォーム
  * @author jshioya
  *
  */

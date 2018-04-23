@@ -29,8 +29,10 @@
 					<td width=100 align="center">担当営業</td>
 					<td width=700>
 					   <!-- 検索候補を設定 -->
-					   <select name="staff">
-							<option value="0">＜指定なし＞</option>
+					   <select name="staffCode">
+					      <c:forEach var="employee" items="${bean.employees}">
+							<option value="${employee.key}">${employee.value}</option>
+						  </c:forEach>
 					   </select>
 					</td>
 				</tr>
@@ -38,9 +40,10 @@
 					<td width=100 align="center">社名</td>
 					<td width=700>
 					   <!-- 検索候補を設定 -->
-					   <select name="syamei">
-							<option value="0">＜指定なし＞</option>
-					   </select>
+					   <select name="companies">
+					   <c:forEach var="company" items="${bean.companies}">
+                            <option value="${company.key}">${company.value}</option>
+                       </c:forEach>
 					</td>
 					<td width=100><input type=submit value="検索 "></td>
 				</tr>
@@ -62,19 +65,33 @@
 					<td align="center">担当者</td>
 					<td align="center">部署名</td>
 					<td align="center">役職</td>
-					<td align="center">前回<br />訪問日
-					</td>
+					<td align="center">前回<br />訪問日</td>
 					<td align="center">関係性</td>
 					<td align="center"></td>
 				</tr>
 				<!-- レコード表示  -->
+				<c:forEach var="customer" items="${bean.customers}">
+				<tr class=hiro3>
+				    <td align="center">${customer.customerNo}</td>
+                    <td align="center">${customer.staffName}</td>
+                    <td align="center">${customer.rank}</td>
+                    <td align="center">${customer.companyName}</td>
+                    <td align="center">${customer.postAddress}</td>
+                    <td align="center">${customer.personnelName}</td>
+                    <td align="center">${customer.departmentName}</td>
+                    <td align="center">${customer.positionName}</td>
+                    <td align="center">${customer.lastVisitDate}</td>
+                    <td align="center">${customer.relationship}</td>
+                    <td align="center"><input type=submit value="詳細" disabled></td>
+				</tr>
+				</c:forEach>
 			</table>
 		</form>
 		<br>
 		<form method="GET" action="customer_register.html">
 			<table width=1000>
 				<tr>
-					<td with=800 align="right"><input type=submit value="新規登録">
+					<td with=800 align="right"><input type=submit value="新規登録" disabled>
 					</td>
 				</tr>
 			</table>

@@ -23,7 +23,7 @@ import jp.co.nexus.crm.db.NCPerson;
 import jp.co.nexus.crm.util.DataFormatUtil;
 
 /**
- * 
+ * 顧客情報のデータ処理を行うクラス
  * @author jshioya
  *
  */
@@ -31,7 +31,7 @@ public class CustomersFacade {
 
 	/**
 	 * 顧客の一覧情報を取得してモデルに設定
-	 * @param model Sprinｇのモデルクラス
+	 * @param model SprinｇFrameworkのモデルクラス
 	 * @return 正常に処理できた場合はtrue
 	 */
 	public boolean doAction (Model model) {
@@ -40,33 +40,61 @@ public class CustomersFacade {
 		ServerRuntime cayenneRuntime = new ServerRuntime("cayenne-NexusCRM.xml");
 		ObjectContext context = cayenneRuntime.getContext();
 		
+		// 顧客情報Beanのインスタンスを生成
 		CustomerListBean bean = new CustomerListBean();
 		
-		// 営業担当者の全レコードを抽出
+		//************************************
+		// １．職員テーブルの検索条件を設定
+		//************************************
+		
+		// 検索条件1：失効日=0
 		SelectQuery empQuery = new SelectQuery(Employee.class);
 		Expression empExpr 
 			= ExpressionFactory.matchExp(
 					Employee.LOST_YMD_PROPERTY, Integer.valueOf(0));
 		empQuery.setQualifier(empExpr);
+		
+		//************************************
+		// 2．職員テーブルを検索
+		//************************************
+		
+		// 検索結果を担当者のコンボボックスに設定
 		List<Employee> employees = (List<Employee>)context.performQuery(empQuery);
 		for (Employee employee : employees) {
-			// 従業員データをモデルに設定
+			// 社員番号＝社員名
 			bean.getEmployees().put(
 				String.valueOf(employee.getEmpNo()), employee.getName());
 		}
 		
-		// 顧客管理テーブルから全レコードを抽出
+		//************************************
+		// 3.顧客管理テーブルの検索条件を設定
+		//************************************
+		
+		// 検索条件1：失効日=0
 		SelectQuery customerQuery = new SelectQuery(NCCustomer.class);
 		Expression exprExpireDate 
 			= ExpressionFactory.matchExp(
 					NCCustomer.LOST_YMD_PROPERTY, Integer.valueOf(0));
 		customerQuery.setQualifier(exprExpireDate);
-		List<NCCustomer> customers = (List<NCCustomer>)context.performQuery(customerQuery);
-		if (customers == null || customers.isEmpty()) {
-			return false;
-		}
 		
-		// 顧客情報をモデルに設定
+		//************************************
+		// 4.顧客管理テーブルを検索
+		//************************************
+		List<NCCustomer> customers = (List<NCCustomer>)context.performQuery(customerQuery);
+		
+		// 検索結果を社名のコンボボックスに設定
+		if (customers != null && !customers.isEmpty()) {
+			for (NCCustomer customer : customers) {
+				// 顧客コード
+				Integer customerCode = getCustomerCode(customer);
+				// 会社名
+				String companyName = customer.getName();
+				// 検索結果を社名のコンボボックスに設定
+				bean.getCompanies().put(String.valueOf(customerCode), companyName);
+			}
+		} 
+		
+		// 検索結果を顧客情報のモデルに設定
 		for (NCCustomer customer : customers) {
 			CustomerInfoBean infoBean = new CustomerInfoBean();
 			
@@ -123,17 +151,83 @@ public class CustomersFacade {
 				infoBean.setRelationship("");
 				
 				// 顧客の一覧情報として追加
-				bean.getCustomerInfoBeans().add(infoBean);
+				bean.getCustomers().add(infoBean);
 			}
 		}
 		
 		// 顧客の一覧情報をモデルへ設定
 		model.addAttribute("bean", bean);
 		
-		return true;
+		return !customers.isEmpty();
 	}
 	
-	
+	/**
+	 * 顧客情報の絞り込み検索結果をモデルに設定
+	 * @param model
+	 * @param staffCode
+	 * @param companyCode
+	 * @return
+	 */
+	public boolean doSearch (
+			Model model, 
+			String staffCode, 
+			String companyCode) {
+		
+		
+		// DBの設定情報を取得
+		ServerRuntime cayenneRuntime = new ServerRuntime("cayenne-NexusCRM.xml");
+		ObjectContext context = cayenneRuntime.getContext();
+		
+		// 顧客情報Beanのインスタンスを生成
+		CustomerListBean bean = new CustomerListBean();
+		
+		//************************************
+		// １．職員テーブルの検索条件を設定
+		//************************************
+		
+		// 検索条件1：失効日=0
+		
+		//************************************
+		// 2．職員テーブルを検索
+		//************************************
+		
+		// 検索結果を担当者のコンボボックスに設定
+		
+		//************************************
+		// 3.顧客管理テーブルの検索条件を設定
+		//************************************
+		
+		// 検索条件1：失効日=0
+		
+		//************************************
+		// 4.顧客管理テーブルを検索
+		//************************************
+		
+		// 検索結果を社名のコンボボックスに設定
+		
+		//************************************
+		// 5.顧客管理テーブルの検索条件を設定
+		//************************************
+		
+		// 検索条件1：失効日=0
+		
+		// 検索条件2：職員コード=%入力値%　※入力値が"*"だったら条件として指定しない
+		
+		// 検索条件3：顧客コード=%入力値% ※入力値が"*"だったら条件として指定しない
+		
+		//************************************
+		// 6.顧客管理テーブルを検索
+		//************************************
+		
+		// 検索結果を顧客情報のモデルに設定
+		
+		
+		
+		// 顧客の一覧情報をモデルへ設定
+		model.addAttribute("bean", bean);
+		
+		return true;
+	}
 	
 	private Integer getCustomerCode(NCCustomer customer) {
 		// 顧客番号
@@ -181,17 +275,17 @@ public class CustomersFacade {
 		divisionQuery.setQualifier(conditionExpr);
 		List<NCDivision> divisions 
 			= (List<NCDivision>)context.performQuery(divisionQuery);
-		for (NCDivision division : divisions) {
-			ObjectId objectId = division.getObjectId();
-			Integer divisionCd 
-				= (Integer)objectId
-					.getIdSnapshot()
-					.get(NCDivision.DIVISIONCD_PK_COLUMN); 
-			if (divisionCd == divisionCode) {
-				return division;
-			}
-		}
-		return null;
+//		for (NCDivision division : divisions) {
+//			ObjectId objectId = division.getObjectId();
+//			Integer divisionCd 
+//				= (Integer)objectId
+//					.getIdSnapshot()
+//					.get(NCDivision.DIVISIONCD_PK_COLUMN); 
+//			if (divisionCd == divisionCode) {
+//				return division;
+//			}
+//		}
+		return divisions.get(0);
 	}
 	
 	private NCCalldoc getLastVisitInfo(

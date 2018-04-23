@@ -9,14 +9,20 @@ import org.apache.cayenne.exp.ExpressionFactory;
 import org.apache.cayenne.query.SelectQuery;
 
 import jp.co.nexus.crm.db.Employee;
+import jp.co.nexus.crm.db.NCPerson;
 
+/**
+ * ログイン認証を行うクラス
+ * @author jshioya
+ *
+ */
 public class AuthFacade {
 
 	/**
 	 * 認証処理
-	 * @param userId ログインID(メールアドレス)
+	 * @param userId ログインID(＝メールアドレス)
 	 * @param password パスワード
-	 * @return
+	 * @return 正常に処理された場合はtrue、そうでない場合はfalse
 	 */
 	public boolean doLogin (String userId, String password) {
 		
@@ -24,15 +30,15 @@ public class AuthFacade {
 		ServerRuntime cayenneRuntime = new ServerRuntime("cayenne-NexusCRM.xml");
 		ObjectContext context = cayenneRuntime.getContext();
 		
-		Expression exprUserId 
+		// 職員テーブルの検索条件を作成[検索条件：メールアドレスとパスワードが一致すること]
+		Expression qureyExpr 
 			= ExpressionFactory.matchExp(Employee.EMAIL_PROPERTY, userId);
-		Expression exprPassword 
-			= ExpressionFactory.matchExp(Employee.PASSWORD_PROPERTY, password);
-		
+		qureyExpr = qureyExpr.andExp(
+			ExpressionFactory.matchExp(Employee.PASSWORD_PROPERTY, password));
 		SelectQuery query = new SelectQuery(Employee.class);
-		query.andQualifier(exprUserId);
-		query.andQualifier(exprPassword);
+		query.setQualifier(qureyExpr);
 		
+		// 従業員検索
 		List<Employee> employees = (List<Employee>)context.performQuery(query);
 		
 		return !employees.isEmpty();

@@ -97,12 +97,11 @@ public abstract class _Employee extends CayenneDataObject {
         return (String)readProperty(NAME_PROPERTY);
     }
 
-    public void setPassword(int password) {
+    public void setPassword(String password) {
         writeProperty(PASSWORD_PROPERTY, password);
     }
-    public int getPassword() {
-        Object value = readProperty(PASSWORD_PROPERTY);
-        return (value != null) ? (Integer) value : 0;
+    public String getPassword() {
+        return (String)readProperty(PASSWORD_PROPERTY);
     }
 
     public void setRetrymd(Integer retrymd) {

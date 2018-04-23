@@ -17,7 +17,13 @@ public class CustomerListBean {
 	/** 担当先の検索候補 */
 	private Map<String, String> companies = new LinkedHashMap<String, String>();
 	/** 顧客一覧情報 */
-	private List<CustomerInfoBean> customerInfoBeans = new ArrayList<CustomerInfoBean>();
+	private List<CustomerInfoBean> customers = new ArrayList<CustomerInfoBean>();
+	
+	
+	public CustomerListBean() {
+		employees.put("*", "＜指定なし＞");
+		companies.put("*", "＜指定なし＞");
+	}
 	
 	public Map<String, String> getEmployees() {
 		return employees;
@@ -31,10 +37,10 @@ public class CustomerListBean {
 	public void setCompanies(Map<String, String> companies) {
 		this.companies = companies;
 	}
-	public List<CustomerInfoBean> getCustomerInfoBeans() {
-		return customerInfoBeans;
+	public List<CustomerInfoBean> getCustomers() {
+		return customers;
 	}
-	public void setCustomerInfoBeans(List<CustomerInfoBean> customerInfoBeans) {
-		this.customerInfoBeans = customerInfoBeans;
+	public void setCustomers(List<CustomerInfoBean> customers) {
+		this.customers = customers;
 	}
 }
