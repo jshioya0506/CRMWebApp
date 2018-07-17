@@ -177,6 +177,7 @@
 		<obj-attribute name="telNo2" type="java.lang.String" db-attribute-path="TELNO2"/>
 		<obj-attribute name="unitPrice" type="int" db-attribute-path="ITEM_RANK_KBN02"/>
 		<obj-attribute name="workInfo" type="int" db-attribute-path="CUST_RANK_KBN04"/>
+		<obj-attribute name="CUSTOMERCD" type="int" db-attribute-path="CUSTOMERCD"/>
 	</obj-entity>
 	<obj-entity name="NCDivision" className="jp.co.nexus.crm.db.NCDivision" lock-type="optimistic" dbEntityName="NC_DIVISION" exclude-superclass-listeners="true">
 		<obj-attribute name="customerCdEd" type="int" db-attribute-path="CUSTOMERCD_ED"/>
