@@ -28,6 +28,9 @@ import jp.co.nexus.crm.util.DataFormatUtil;
  */
 public class CustomersFacade {
 
+	// 定数
+	private final String NO_SELECT = "*";
+
 	/**
 	 * 顧客の一覧情報を取得してモデルに設定
 	 * @param model SprinｇFrameworkのモデルクラス
@@ -245,7 +248,7 @@ public class CustomersFacade {
 				NCCustomer.LOST_YMD_PROPERTY, Integer.valueOf(0));
 
 		// 検索条件2：職員コード=%入力値% ※入力値が"*"だったら条件として指定しない
-		if( !(staffCode.equals("*")) )
+		if( !(NO_SELECT.equals(staffCode)) )
 		{
 			exprExpire
 			= exprExpire.andExp(ExpressionFactory.matchExp(
@@ -253,7 +256,7 @@ public class CustomersFacade {
 		}
 
 		// 検索条件3：顧客コード=%入力値% ※入力値が"*"だったら条件として指定しない
-		if( !(companyCode.equals("*")) )
+		if( !(NO_SELECT.equals(companyCode)) )
 		{
 			exprExpire
 			= exprExpire.andExp(ExpressionFactory.matchExp(

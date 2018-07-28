@@ -10,7 +10,7 @@ public class SearchForm {
 	/** 職員コード */
 	private String staffCode;
 	/**  */
-	private String customerCode;
+	//private String customerCode;
 	/** 顧客コード */
 	private String companies;
 
@@ -34,17 +34,17 @@ public class SearchForm {
 	 *
 	 * @return
 	 */
-	public String getCustomerCode() {
-		return customerCode;
-	}
+	//public String getCustomerCode() {
+	//	return customerCode;
+	//}
 
 	/**
 	 *
 	 * @param customerCode
 	 */
-	public void setCustomerCode(String customerCode) {
-		this.customerCode = customerCode;
-	}
+	//public void setCustomerCode(String customerCode) {
+	//	this.customerCode = customerCode;
+	//}
 
 	/**
 	 * 顧客コードを取得
