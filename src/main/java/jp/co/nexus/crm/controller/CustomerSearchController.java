@@ -42,7 +42,6 @@ public class CustomerSearchController {
 		/* SearchFormによって入力される職員コードと顧客コード(1と2)をキーに、
 		 * 絞り込み検索を行う(3)←CustomersFacadeのdoSearch
 		 */
-
 		return "customer_list";
 	}
 

@@ -252,7 +252,7 @@ public class CustomersFacade {
 					NCCustomer.staffCodeに当たるカラム, staffCode);
 			empCustomerQuery.andQualifier(empCustomer02);
 		}
-		* staffCodeに当たるカラムが何か不明
+		* staffCodeに当たるカラムが何か不明のため
 		*/
 
 		// 検索条件3：顧客コード=%入力値% ※入力値が"*"だったら条件として指定しない
