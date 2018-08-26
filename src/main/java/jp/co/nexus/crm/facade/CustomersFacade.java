@@ -252,6 +252,7 @@ public class CustomersFacade {
 					NCCustomer.staffCodeに当たるカラム, staffCode);
 			empCustomerQuery.andQualifier(empCustomer02);
 		}
+
 		* staffCodeに当たるカラムが何か不明
 		*/
 
