@@ -40,7 +40,7 @@
 					<td width=100 align="center">社名</td>
 					<td width=700>
 					   <!-- 検索候補を設定 -->
-					   <select name="companies">
+					   <select name="customerCode">
 					   <c:forEach var="company" items="${bean.companies}">
                             <option value="${company.key}">${company.value}</option>
                        </c:forEach>
