@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import jp.co.nexus.crm.facade.CustomersFacade;
 import jp.co.nexus.crm.form.SearchForm;
 
 /**
@@ -30,12 +31,15 @@ public class CustomerSearchController {
 	@RequestMapping(value = "/searchCustomer", method = RequestMethod.GET)
 	public String doProcess(SearchForm form, Model model) {
 		
-		// １．[担当者]の入力データを取得
+		// 1.[担当者]の入力データを取得
+		String staffCode = form.getStaffCode();
 		
 		// 2.[社名]の入力データを取得
+		String companyCode = form.getCustomerCode();
 		
 		// 3.担当者、社名で絞込検索
-		
+		CustomersFacade facade = new CustomersFacade();
+		facade.doSearch(model, staffCode, companyCode);
 		
 		return "customer_list";
 	}
