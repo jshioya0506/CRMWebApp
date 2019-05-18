@@ -33,11 +33,11 @@ public class CustomerSearchController {
 		String staffCode = form.getStaffCode();
 
 		// 2.[社名]の入力データを取得
-		String customerCode = form.getCustomerCode();
+		String companyCode = form.getCustomerCode();
 
 		// 3.担当者、社名で絞込検索
-		CustomersFacade customersFacade = new CustomersFacade();
-		customersFacade.doSearch(model,staffCode,customerCode);
+		CustomersFacade Facade = new CustomersFacade();
+		Facade.doSearch(model,staffCode,companyCode);
 
 
 		return "customer_list";

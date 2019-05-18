@@ -218,7 +218,6 @@ public class CustomersFacade {
 		// 4.顧客管理テーブルを検索
 		//************************************
 		List<NCCustomer> customers = (List<NCCustomer>)context.performQuery(customerQuery);
-
 		// 検索結果を社名のコンボボックスに設定
 		if (customers != null && !customers.isEmpty()) {
 			for (NCCustomer customer : customers) {
@@ -231,40 +230,43 @@ public class CustomersFacade {
 			}
 		}
 
-
 		//************************************
 		// 5.顧客管理テーブルの検索条件を設定
 		//************************************
+		SelectQuery customerRefQuery = new SelectQuery(NCCustomer.class);
 
 		// 検索条件1：失効日=0
-		SelectQuery empcustomerQuery = new SelectQuery(NCCustomer.class);
-		Expression empCustomer1
-			= ExpressionFactory.matchExp(
-					NCCustomer.LOST_YMD_PROPERTY, Integer.valueOf(0));
-		empcustomerQuery.setQualifier(empCustomer1);
+		Expression empExprDate	= ExpressionFactory.matchExp(
+				NCCustomer.LOST_YMD_PROPERTY, Integer.valueOf(0));
+		customerRefQuery.setQualifier(empExprDate);
 
 		// 検索条件2：職員コード=%入力値%　※入力値が"*"だったら条件として指定しない
-		if(!(staffCode.equals("*"))) {
-				Expression empCustomer2
+
+		if(!("*".equals(staffCode))) {
+			Expression empExprStaffCode
 				= ExpressionFactory.matchExp(
-							NCCustomer.EMPLOYEE_PROPERTY, Integer.parseInt(staffCode));
-				empcustomerQuery.andQualifier(empCustomer2);
+						NCCustomer.EMPLOYEE_PROPERTY, Integer.parseInt(staffCode));
+			customerRefQuery.andQualifier(empExprStaffCode);
 		}
 
 		// 検索条件3：顧客コード=%入力値% ※入力値が"*"だったら条件として指定しない
-		if( !(companyCode.equals("*")) ) {
-				Expression empCustomer3
-				= ExpressionFactory.matchExp(
-							NCCustomer.CUSTOMERCD_PK_COLUMN, companyCode);
-				empcustomerQuery.andQualifier(empCustomer3);
-			}
+		if(!("*".equals(companyCode))) {
 
+			Expression empExprCompanyCode
+				= ExpressionFactory.matchDbExp(
+						NCCustomer.CUSTOMERCD_PK_COLUMN, Integer.parseInt(companyCode));
+			customerRefQuery.andQualifier(empExprCompanyCode);
+		}
 		//************************************
 		// 6.顧客管理テーブルを検索
 		//************************************
 
 		// 検索結果を顧客情報のモデルに設定
-		for (NCCustomer customer : customers) {
+
+		System.out.println(customerRefQuery);
+		List<NCCustomer> serchlistcustomers = (List<NCCustomer>)context.performQuery(customerRefQuery);
+
+		for (NCCustomer customer : serchlistcustomers) {
 			CustomerInfoBean infoBean = new CustomerInfoBean();
 
 			// エリア情報
@@ -303,7 +305,7 @@ public class CustomersFacade {
 				infoBean.setDepartmentName(division.getName());
 
 				//TODO 役職(テーブルのカラムがないので表示保留)
-				infoBean.setPositionName("");
+				//infoBean.setPositionName("");
 
 				// 前回訪問日
 				NCCalldoc calldoc = getLastVisitInfo(
@@ -315,15 +317,13 @@ public class CustomersFacade {
 						String.valueOf(calldoc.getCallYmd()));
 				infoBean.setLastVisitDate(lastVisitDate);
 
-				//
 				//TODO 関係性(テーブルのカラムがないので表示保留)
-				infoBean.setRelationship("");
+				//infoBean.setRelationship("");
 
 				// 顧客の一覧情報として追加
 				bean.getCustomers().add(infoBean);
 			}
 		}
-
 
 		// 顧客の一覧情報をモデルへ設定
 		model.addAttribute("bean", bean);
