@@ -254,11 +254,10 @@ public class CustomersFacade {
 		}
 		
 		// 検索条件3：顧客コード=%入力値% ※入力値が"*"だったら条件として指定しない
-		// TODO 2019/05/11 主キーでの検索ができない
-//		if (!companyCode.equals("*")) {
-//			queryExpr = queryExpr.andExp(
-//					ExpressionFactory.matchExp(NCCustomer.CUSTOMERCD_PK_COLUMN, companyCode));
-//		}
+		if (!companyCode.equals("*")) {
+			queryExpr = queryExpr.andExp(
+					ExpressionFactory.matchDbExp(NCCustomer.CUSTOMERCD_PK_COLUMN, companyCode));
+		}
 	
 		SelectQuery query = new SelectQuery(NCCustomer.class);	
 		query.setQualifier(queryExpr);
