@@ -7,7 +7,6 @@ import org.apache.cayenne.ObjectId;
 import org.apache.cayenne.configuration.server.ServerRuntime;
 import org.apache.cayenne.exp.Expression;
 import org.apache.cayenne.exp.ExpressionFactory;
-import org.apache.cayenne.query.Ordering;
 import org.apache.cayenne.query.SelectQuery;
 import org.apache.cayenne.query.SortOrder;
 import org.springframework.ui.Model;
@@ -60,10 +59,10 @@ public class CustomersFacade {
 		
 		// 検索結果を担当者のコンボボックスに設定
 		List<Employee> employees = (List<Employee>)context.performQuery(empQuery);
-		for (Employee employee : employees) {
+		for (Employee employee : employees)
+		{
 			// 社員番号＝社員名
-			bean.getEmployees().put(
-				String.valueOf(employee.getEmpNo()), employee.getName());
+			bean.getEmployees().put(String.valueOf(employee.getEmpNo()), employee.getName());
 		}
 		
 		//************************************
@@ -71,16 +70,16 @@ public class CustomersFacade {
 		//************************************
 		
 		// 検索条件1：失効日=0
-		SelectQuery customerQuery = new SelectQuery(NCCustomer.class);
-		Expression exprExpireDate 
-			= ExpressionFactory.matchExp(
-					NCCustomer.LOST_YMD_PROPERTY, Integer.valueOf(0));
-		customerQuery.setQualifier(exprExpireDate);
+		SelectQuery emoQueary = new SelectQuery(NCCustomer.class);
+		Expression exprExpireDate
+				= ExpressionFactory.matchExp(
+						NCCustomer.LOST_YMD_PROPERTY, Integer.valueOf(0));
+		emoQueary.setQualifier(exprExpireDate);
 		
 		//************************************
 		// 4.顧客管理テーブルを検索
 		//************************************
-		List<NCCustomer> customers = (List<NCCustomer>)context.performQuery(customerQuery);
+		List<NCCustomer> customers = (List<NCCustomer>)context.performQuery(empQuery);
 		
 		// 検索結果を社名のコンボボックスに設定
 		if (customers != null && !customers.isEmpty()) {
@@ -186,42 +185,127 @@ public class CustomersFacade {
 		//************************************
 		
 		// 検索条件1：失効日=0
+		SelectQuery EQ = new SelectQuery(Employee.class);
+		Expression empExpr
+			= ExpressionFactory.matchExp(
+					Employee.LOST_YMD_PROPERTY, Integer.valueOf(0));
+		EQ.setQualifier(empExpr);
 		
 		//************************************
 		// 2．職員テーブルを検索
 		//************************************
 		
 		// 検索結果を担当者のコンボボックスに設定
+		List<Employee> employees = (List<Employee>)context.performQuery(EQ);
+		for (Employee employee : employees) 
+		{
+			// 社員番号＝社員名
+			bean.getEmployees().put(String.valueOf(employee.getEmpNo()), employee.getName());
+		}
 		
 		//************************************
 		// 3.顧客管理テーブルの検索条件を設定
 		//************************************
 		
 		// 検索条件1：失効日=0
+		SelectQuery SQ = new SelectQuery(NCCustomer.class);
+		Expression exprExpireDate = ExpressionFactory.matchExp(NCCustomer.LOST_YMD_PROPERTY, Integer.valueOf(0));
+		SQ.setQualifier(exprExpireDate);
 		
 		//************************************
 		// 4.顧客管理テーブルを検索
 		//************************************
-		
+		List<NCCustomer> customers = (List<NCCustomer>)context.performQuery(customerQuery);
 		// 検索結果を社名のコンボボックスに設定
+		if (customers != null && !customers.isEmpty()) 
+		{
+			for (NCCustomer customer : customers) 
+			{
+				// 顧客コード
+				Integer customerCode = getCustomerCode(customer);
+				// 会社名
+				String companyName = customer.getName();
+				// 検索結果を社名のコンボボックスに設定
+				bean.getCompanies().put(String.valueOf(customerCode), companyName);
+			}
+		}
 		
 		//************************************
 		// 5.顧客管理テーブルの検索条件を設定
 		//************************************
-		
+		SelectQuery RSQ = new SelectQuery(NCCustomer.class);
 		// 検索条件1：失効日=0
+		Expression empExprDate	= ExpressionFactory.matchExp(NCCustomer.LOST_YMD_PROPERTY, Integer.valueOf(0));RSQ.setQualifier(empExprDate);
 		
 		// 検索条件2：職員コード=%入力値%　※入力値が"*"だったら条件として指定しない
+		if(!("*".equals(staffCode)))
+		{
+			Expression empExprStaffCode = ExpressionFactory.matchExp(NCCustomer.EMPLOYEE_PROPERTY, Integer.parseInt(staffCode));
+			RSQ.andQualifier(empExprStaffCode);
+		}
 		
 		// 検索条件3：顧客コード=%入力値% ※入力値が"*"だったら条件として指定しない
-		
+		if(!("*".equals(companyCode))) {
+			Expression empExprCompanyCode
+				= ExpressionFactory.matchDbExp(
+						NCCustomer.CUSTOMERCD_PK_COLUMN, Integer.parseInt(companyCode));
+			RSQ.andQualifier(empExprCompanyCode);
+		}
 		//************************************
 		// 6.顧客管理テーブルを検索
 		//************************************
+		System.out.println(RSQ);
+		List<NCCustomer> serchlistcustomers = (List<NCCustomer>)context.performQuery(RSQ);
 		
 		// 検索結果を顧客情報のモデルに設定
-		
-		
+		for (NCCustomer customer : serchlistcustomers)
+		{
+			CustomerInfoBean infoBean = new CustomerInfoBean();
+
+			// エリア情報
+			Area area = customer.getArea();
+
+			// 営業担当情報
+			Employee employee = customer.getEmployee();
+
+			// 顧客コード
+			Integer customerCode = getCustomerCode(customer);
+
+			List<NCPerson> persons = getPersons(context, customerCode);
+			for (NCPerson person : persons) 
+			{
+				String customerNo	= DataFormatUtil.formatCustomerNumber(area.getAreaCd(), customerCode);
+				infoBean.setCustomerNo(customerNo);
+				// 担当営業
+				infoBean.setStaffName(employee.getName());
+				// ランク
+				String rank = getRank(customer);
+				infoBean.setRank(rank);
+				// 社名
+				infoBean.setCompanyName(customer.getName());
+				// 住所
+				infoBean.setPostAddress(customer.getAddress());
+				// 担当者
+				infoBean.setPersonnelName(person.getName());
+				// 部署名
+				NCDivision division = getDivision(context,customerCode,person.getDivisioncd());
+				infoBean.setDepartmentName(division.getName());
+
+				//TODO 役職(テーブルのカラムがないので表示保留)
+				infoBean.setPositionName("");
+
+				// 前回訪問日
+				NCCalldoc calldoc = getLastVisitInfo(context,customerCode,person.getDivisioncd());
+				String lastVisitDate= DataFormatUtil.formatDate(String.valueOf(calldoc.getCallYmd()));
+				infoBean.setLastVisitDate(lastVisitDate);
+
+				//TODO 関係性(テーブルのカラムがないので表示保留)
+				infoBean.setRelationship("");
+
+				// 顧客の一覧情報として追加
+				bean.getCustomers().add(infoBean);
+			}
+		}
 		
 		// 顧客の一覧情報をモデルへ設定
 		model.addAttribute("bean", bean);
